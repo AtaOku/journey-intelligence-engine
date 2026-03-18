@@ -143,7 +143,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-6 space-y-6">
+      <main className="px-6 py-6 space-y-6">
         {error && metadata && (
           <div className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/20 px-4 py-3 text-sm text-amber-800 dark:text-amber-300">
             {error}
@@ -176,7 +176,7 @@ export default function App() {
         </div>
 
         {activeTab === 'journey' && sankeyData && friction && (
-          <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6">
+          <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-4">
             <SankeyCanvas data={sankeyData} friction={friction} />
           </div>
         )}

@@ -52,8 +52,8 @@ export function SankeyCanvas({ data, friction }: Props) {
 
   const frictionMap = useMemo(() => buildFrictionMap(friction), [friction]);
 
-  const WIDTH = 960;
-  const HEIGHT = 520;
+  const WIDTH = 1600;
+  const HEIGHT = 700;
   const MARGIN = { top: 24, right: 140, bottom: 24, left: 24 };
 
   useEffect(() => {
@@ -63,9 +63,27 @@ export function SankeyCanvas({ data, friction }: Props) {
     svg.selectAll('*').remove();
 
     // ── Layout ──
+    // Define funnel stage order — links going backward are dropped
+    // to prevent circular references that crash d3-sankey.
+    const STAGE_ORDER: Record<string, number> = {
+      homepage: 0, landing: 0,
+      search: 1, category: 1,
+      view: 2, size_guide: 2, review: 2, wishlist: 2,
+      add_to_cart: 3,
+      checkout: 4,
+      purchase: 5,
+    };
+
+    const nodeMap = new Map(data.nodes.map((n) => [n.id, n.name]));
+
     const sankeyNodes = data.nodes.map((n) => ({ ...n }));
     const sankeyLinks = data.links
-      .filter((l) => l.value > 0)
+      .filter((l) => {
+        if (l.value <= 0 || l.source === l.target) return false;
+        const srcStage = STAGE_ORDER[nodeMap.get(l.source) ?? ''] ?? -1;
+        const tgtStage = STAGE_ORDER[nodeMap.get(l.target) ?? ''] ?? -1;
+        return tgtStage > srcStage || (tgtStage === srcStage && l.target > l.source);
+      })
       .map((l) => ({ ...l }));
 
     const sankeyGen = sankey<any, any>()
@@ -380,7 +398,7 @@ export function SankeyCanvas({ data, friction }: Props) {
           ref={svgRef}
           viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
           className="w-full"
-          style={{ minWidth: 700 }}
+          style={{ minWidth: 1000 }}
         />
       </div>
 
