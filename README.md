@@ -1,112 +1,121 @@
-# Journey Intelligence Engine
+# 🔍 Fashion E-Commerce Return Root Cause Diagnosis
 
-**Path-level customer journey analysis with friction detection.**
+**Bayesian Network Backward Inference for Diagnosing Hidden Return Reasons**
 
-Which customer paths convert, which don't, and what's the single highest-impact friction point to fix?
+> Course: Introduction to Artificial Intelligence (IN2062) · TUM · Prof. Dr.-Ing. Matthias Althoff  
+> Author: Ata Okuzcuoglu · MSc Management & Technology (Marketing + CS)
 
-![React](https://img.shields.io/badge/React_18-61DAFB?style=flat&logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
-![D3](https://img.shields.io/badge/D3.js-F9A03C?style=flat&logo=d3.js&logoColor=black)
-![Tailwind](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
-
-## What it does
-
-E-commerce teams know their overall conversion rate but have no idea *which journey paths* are broken. GA4 shows funnel stages in isolation. This tool shows the full picture:
-
-- **Interactive Sankey diagram** showing all journey paths with friction highlighting
-- **Step-type aware anomaly scoring** — detects friction points relative to their funnel zone (navigation / engagement / commitment), not a global average
-- **Friction pattern detection** — identifies behavioral signatures like search frustration loops, cart hesitation, checkout abandonment
-- **Pattern mining** — discovers which journey paths convert and which don't (showcase mode)
-- **CSV upload** — analyze your own clickstream data entirely client-side (no data leaves your browser)
-
-## Two modes
-
-**Showcase mode** — Pre-loaded with real e-commerce data. Full analysis including sequential pattern mining. Zero setup.
-
-**Upload mode** — Upload your own CSV. Transition matrix, anomaly scoring, and friction patterns computed client-side in TypeScript. Pattern mining requires server-side computation (coming in v2).
-
-## Quick start
-
-```bash
-git clone https://github.com/AtaOku/journey-intelligence-engine.git
-cd journey-intelligence-engine
-npm install
-npm run dev
-```
-
-Open `http://localhost:5173` — showcase data loads automatically.
-
-## CSV format
-
-The upload parser auto-detects two formats:
-
-**Standard format:**
-```csv
-session_id,timestamp,event_type,category,product_id,price
-s_001,2024-01-15 10:23:01,homepage,,,
-s_001,2024-01-15 10:23:45,category,clothing,,
-s_001,2024-01-15 10:24:12,view,clothing,p_1234,49.99
-```
-
-**REES46 format** (from [Kaggle](https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store)):
-```csv
-event_time,event_type,product_id,category_code,brand,price,user_id,user_session
-2019-10-01 00:00:04,view,1005115,electronics.smartphone,samsung,162.31,513903572,26dd...
-```
-
-Minimum required columns: `session_id` + `event_type` (standard) or `user_session` + `event_type` (REES46).
-
-## Technical approach
-
-| Layer | Technique | Purpose |
-|---|---|---|
-| Pattern mining | Seq2Pat DPM (offline) + frequency analysis | Discover converting vs non-converting journey patterns |
-| Flow modeling | First-order Markov Chain (transition matrix) | Model journey flow for Sankey + anomaly baseline |
-| Friction detection | Step-type aware z-score | Score each step's drop-off against its funnel zone peers |
-| Pattern classification | Heuristic behavioral signatures | Detect search loops, cart hesitation, checkout abandonment |
-
-Anomaly scores are computed within three funnel zones (navigation, engagement, commitment) — not globally. A 40% drop-off at homepage is normal; 40% at checkout is critical. Zone-aware scoring catches the difference.
-
-Friction pattern detection is heuristic-based, not causal. The system flags behavioral signatures and their frequency — it does not claim to know *why* users behave that way. See the [spec](./PROJECT5_JOURNEY_INTELLIGENCE_ENGINE_SPEC.md) for full methodology.
-
-## Stack
-
-- **Frontend:** React 18, TypeScript, Tailwind CSS
-- **Visualization:** D3.js (`d3-sankey`)
-- **Offline analysis:** Python (Seq2Pat, pandas, numpy)
-- **Deploy:** Vercel
-
-## Project structure
-
-```
-src/
-├── api/          Data sources (showcase JSON, client-side CSV)
-├── engine/       Analysis engine (transition matrix, anomaly scoring, friction patterns)
-├── ui/           React components (Sankey, pattern table, friction cards)
-├── config/       Zone classification, event taxonomy
-└── App.tsx       Root layout with showcase/upload toggle
-
-analysis/         Python offline pipeline (not deployed)
-```
-
-## Part of the MarTech × AI Portfolio
-
-This is Project 5 in a portfolio of AI-powered marketing tools:
-
-1. **ContentEngine AI** — Content operations system (React, Vercel)
-2. **CSP Campaign Planner** — Constraint satisfaction campaign scheduling (Streamlit)
-3. **Bayesian Return Diagnosis** — 18-node BN for return root cause (Streamlit)
-4. **Competitor Intel Monitor** — Multi-source competitive intelligence (React, Netlify)
-5. **Journey Intelligence Engine** — This project
-6. *MDP Contact Policy* — Planned
-7. *Logic Compliance Engine* — Planned
-
-Each project applies a specific AI technique to a real marketing problem.
-
-## License
-
-MIT
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://bayesian-marketing-attribution-model.streamlit.app)
 
 ---
 
-Built by [Ata Okuzcuoglu](https://linkedin.com/in/ataokuzcuoglu) · MSc Management & Technology @ TU Munich
+## The Problem
+
+Fashion e-commerce suffers from return rates of **25-40%**, costing the industry **$218 billion globally** (Radial, 2024). Analytics dashboards show *which* items are returned — but cannot answer **why**.
+
+Customer-reported reasons are unreliable: surveys show only 30-40% completion, and customers frequently misreport the true reason. Meanwhile, the actual breakdown (Coresight, 2023; Rocket Returns, 2025):
+
+| Root Cause | Share of Returns |
+|---|---|
+| Size / Fit Mismatch | 53–70% |
+| Style / Expectation Gap | 16–23% |
+| Quality / Damage | 10–13% |
+| Impulse / Buyer's Regret | 8–15% |
+| Intentional Bracketing | ~15% (multi-brand) |
+
+## The Solution: Backward Inference
+
+This tool uses a **Bayesian Network** to reason *backward* from observed signals to hidden causes:
+
+```
+Given: returned = Yes + observable order signals
+Infer: P(root_cause | evidence) for 5 competing causes
+Find:  Which cause has the highest diagnostic lift?
+```
+
+**Why BN and not regression?** Regression predicts *P(returned | features)* — whether a return happens. A BN computes *P(cause | returned=Yes, signals)* — **why** it happened. This is the information merchandising teams need.
+
+## Network Architecture
+
+```
+OBSERVABLE (12 nodes)              ROOT CAUSES (5)              OUTCOME
+═══════════════════════            ═══════════════              ═══════
+
+size_sensitive_category ──┐
+is_first_purchase ────────┼──→ 👗 SIZE_MISMATCH ─────────┐
+viewed_size_guide ────────┤                               │
+mobile_purchase ──────────┘                               │
+                                                          │
+premium_price ────────────┐                               │
+is_first_purchase ────────┼──→ 📸 EXPECTATION_GAP ───────┤
+mobile_purchase ──────────┘                               ├──→ RETURNED
+                                                          │    (Noisy-OR)
+purchased_on_discount ────┐                               │
+social_media_referral ────┼──→ 💸 IMPULSE_REGRET ────────┤
+mobile_purchase ──────────┤                               │
+young_customer ───────────┘                               │
+                                                          │
+multi_size_order ─────────┐                               │
+young_customer ───────────┼──→ 🔄 BRACKETING ────────────┤
+high_return_history ──────┘                               │
+                                                          │
+slow_delivery ────────────┐                               │
+multiple_items_in_order ──┼──→ 📦 QUALITY/DAMAGE ────────┘
+premium_price ────────────┘
+```
+
+**18 nodes · 22 edges · All binary · 2¹⁸ = 262,144 states · Exact inference**
+
+## Key Features
+
+- **Root Cause Diagnosis** — Set evidence, see which of 5 causes has the highest posterior probability
+- **Diagnostic Lift** — P(cause|evidence) / P(cause) reveals which cause the evidence supports most
+- **What-If Simulation** — Change one signal and see how return probability shifts
+- **Academic Methodology Tab** — Full formal definition, CPT calibration, Noisy-OR model
+- **17 Research Citations** — Every CPT parameter grounded in industry data
+- **Quick Presets** — 5 realistic scenarios to demonstrate different diagnosis patterns
+
+## Example Diagnoses
+
+| Scenario | Top Diagnosis | Lift |
+|---|---|---|
+| Dress + New Customer + Mobile + No Size Guide | 👗 Size Mismatch | 3.42x |
+| Multi-Size Order + Young Customer | 🔄 Bracketing | 12.05x |
+| Instagram + Discount + Mobile + Young | 💸 Impulse Regret | 3.62x |
+| Slow Delivery + Premium + Multi-Item | 📦 Quality/Damage | 5.56x |
+
+## Tech Stack
+
+- **Engine:** Custom BayesNet class with exact enumeration inference (Russell & Norvig Fig. 14.9)
+- **Frontend:** Streamlit
+- **No external ML libraries** — Built from first principles to demonstrate understanding
+
+## Running Locally
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+## References
+
+See the full References tab in the app for 17 citations. Key sources:
+
+1. Coresight Research (2023). "The True Cost of Apparel Returns"
+2. Radial (2024). "Tech Takes on E-Commerce's $218 Billion Returns Problem"
+3. Rocket Returns (2025). "Ecommerce Return Rates: Complete Industry Analysis"
+4. AfterShip (2024). "Returns: Fashion's $218 Billion Problem"
+5. Landmark Global (2025). "Wardrobing & Bracketing: Serial Returners"
+6. Russell & Norvig (2021). *AI: A Modern Approach*, 4th ed., Ch. 13-14
+
+## Part of the MarTech × AI Portfolio
+
+This is **Project 2** in a portfolio demonstrating AI techniques applied to marketing:
+- Project 1: CSP-Based Campaign & Budget Planner
+- **Project 2: BN Return Root Cause Diagnosis** ← You are here
+- Project 3: HMM-Based Customer Lifecycle Segmentation (planned)
+- Project 4: MDP for Dynamic Pricing Strategy (planned)
+
+---
+
+*Built by Ata Okuzcuoglu · TUM MSc Management & Technology · 2025*
