@@ -1,0 +1,2259 @@
+{
+  "metadata": {
+    "total_sessions": 10000,
+    "converting_sessions": 504,
+    "conversion_rate": 0.0504,
+    "avg_events_per_session": 4.0,
+    "avg_session_value": 151.48,
+    "data_source": "synthetic_showcase",
+    "generated_at": "2026-03-18T22:02:51.445356",
+    "n_friction_points": 2,
+    "top_friction_step": "landing"
+  },
+  "sankey": {
+    "nodes": [
+      {
+        "id": 0,
+        "name": "homepage"
+      },
+      {
+        "id": 1,
+        "name": "landing"
+      },
+      {
+        "id": 2,
+        "name": "search"
+      },
+      {
+        "id": 3,
+        "name": "category"
+      },
+      {
+        "id": 4,
+        "name": "view"
+      },
+      {
+        "id": 5,
+        "name": "size_guide"
+      },
+      {
+        "id": 6,
+        "name": "review"
+      },
+      {
+        "id": 7,
+        "name": "wishlist"
+      },
+      {
+        "id": 8,
+        "name": "add_to_cart"
+      },
+      {
+        "id": 9,
+        "name": "checkout"
+      },
+      {
+        "id": 10,
+        "name": "purchase"
+      }
+    ],
+    "links": [
+      {
+        "source": 3,
+        "target": 4,
+        "value": 4494,
+        "drop_off_rate": 0.1144,
+        "anomaly_score": -0.69,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 0,
+        "target": 3,
+        "value": 3634,
+        "drop_off_rate": 0.1325,
+        "anomaly_score": -0.61,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 4,
+        "target": 4,
+        "value": 2684,
+        "drop_off_rate": 0.3188,
+        "anomaly_score": 0.1,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 2,
+        "target": 4,
+        "value": 2409,
+        "drop_off_rate": 0.1804,
+        "anomaly_score": -0.42,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 4,
+        "target": 3,
+        "value": 2230,
+        "drop_off_rate": 0.3188,
+        "anomaly_score": 0.1,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 0,
+        "target": 4,
+        "value": 1991,
+        "drop_off_rate": 0.1325,
+        "anomaly_score": -0.61,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 4,
+        "target": 2,
+        "value": 1612,
+        "drop_off_rate": 0.3188,
+        "anomaly_score": 0.1,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 4,
+        "target": 8,
+        "value": 1540,
+        "drop_off_rate": 0.3188,
+        "anomaly_score": 0.1,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 0,
+        "target": 2,
+        "value": 1403,
+        "drop_off_rate": 0.1325,
+        "anomaly_score": -0.61,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 2,
+        "target": 2,
+        "value": 933,
+        "drop_off_rate": 0.1804,
+        "anomaly_score": -0.42,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 8,
+        "target": 4,
+        "value": 867,
+        "drop_off_rate": 0.3705,
+        "anomaly_score": 0.46,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 8,
+        "target": 9,
+        "value": 495,
+        "drop_off_rate": 0.3705,
+        "anomaly_score": 0.46,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 3,
+        "target": 8,
+        "value": 494,
+        "drop_off_rate": 0.1144,
+        "anomaly_score": -0.69,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 4,
+        "target": 9,
+        "value": 429,
+        "drop_off_rate": 0.3188,
+        "anomaly_score": 0.1,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 3,
+        "target": 3,
+        "value": 374,
+        "drop_off_rate": 0.1144,
+        "anomaly_score": -0.69,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 2,
+        "target": 8,
+        "value": 272,
+        "drop_off_rate": 0.1804,
+        "anomaly_score": -0.42,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 9,
+        "target": 8,
+        "value": 269,
+        "drop_off_rate": 0.464,
+        "anomaly_score": 0.93,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 0,
+        "target": 8,
+        "value": 252,
+        "drop_off_rate": 0.1325,
+        "anomaly_score": -0.61,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 9,
+        "target": 4,
+        "value": 222,
+        "drop_off_rate": 0.464,
+        "anomaly_score": 0.93,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 8,
+        "target": 8,
+        "value": 203,
+        "drop_off_rate": 0.3705,
+        "anomaly_score": 0.46,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 3,
+        "target": 9,
+        "value": 200,
+        "drop_off_rate": 0.1144,
+        "anomaly_score": -0.69,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 8,
+        "target": 3,
+        "value": 189,
+        "drop_off_rate": 0.3705,
+        "anomaly_score": 0.46,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 1,
+        "target": 4,
+        "value": 188,
+        "drop_off_rate": 0.7232,
+        "anomaly_score": 1.72,
+        "zone": "navigation",
+        "friction_level": "medium"
+      },
+      {
+        "source": 9,
+        "target": 10,
+        "value": 155,
+        "drop_off_rate": 0.464,
+        "anomaly_score": 0.93,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 4,
+        "target": 6,
+        "value": 152,
+        "drop_off_rate": 0.3188,
+        "anomaly_score": 0.1,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 7,
+        "target": 4,
+        "value": 136,
+        "drop_off_rate": 0.0508,
+        "anomaly_score": -0.99,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 8,
+        "target": 10,
+        "value": 136,
+        "drop_off_rate": 0.3705,
+        "anomaly_score": 0.46,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 4,
+        "target": 7,
+        "value": 134,
+        "drop_off_rate": 0.3188,
+        "anomaly_score": 0.1,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 4,
+        "target": 10,
+        "value": 127,
+        "drop_off_rate": 0.3188,
+        "anomaly_score": 0.1,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 3,
+        "target": 6,
+        "value": 126,
+        "drop_off_rate": 0.1144,
+        "anomaly_score": -0.69,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 5,
+        "target": 4,
+        "value": 117,
+        "drop_off_rate": 0.1202,
+        "anomaly_score": -0.7,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 4,
+        "target": 5,
+        "value": 99,
+        "drop_off_rate": 0.3188,
+        "anomaly_score": 0.1,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 3,
+        "target": 7,
+        "value": 95,
+        "drop_off_rate": 0.1144,
+        "anomaly_score": -0.69,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 10,
+        "target": 9,
+        "value": 93,
+        "drop_off_rate": 0.0,
+        "anomaly_score": -1.39,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 8,
+        "target": 2,
+        "value": 85,
+        "drop_off_rate": 0.3705,
+        "anomaly_score": 0.46,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 7,
+        "target": 3,
+        "value": 82,
+        "drop_off_rate": 0.0508,
+        "anomaly_score": -0.99,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 6,
+        "target": 4,
+        "value": 68,
+        "drop_off_rate": 0.6827,
+        "anomaly_score": 1.59,
+        "zone": "engagement",
+        "friction_level": "medium"
+      },
+      {
+        "source": 10,
+        "target": 8,
+        "value": 62,
+        "drop_off_rate": 0.0,
+        "anomaly_score": -1.39,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 0,
+        "target": 9,
+        "value": 60,
+        "drop_off_rate": 0.1325,
+        "anomaly_score": -0.61,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 9,
+        "target": 3,
+        "value": 59,
+        "drop_off_rate": 0.464,
+        "anomaly_score": 0.93,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 3,
+        "target": 5,
+        "value": 58,
+        "drop_off_rate": 0.1144,
+        "anomaly_score": -0.69,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 5,
+        "target": 8,
+        "value": 50,
+        "drop_off_rate": 0.1202,
+        "anomaly_score": -0.7,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 1,
+        "target": 8,
+        "value": 50,
+        "drop_off_rate": 0.7232,
+        "anomaly_score": 1.72,
+        "zone": "navigation",
+        "friction_level": "medium"
+      },
+      {
+        "source": 10,
+        "target": 4,
+        "value": 47,
+        "drop_off_rate": 0.0,
+        "anomaly_score": -1.39,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 1,
+        "target": 9,
+        "value": 40,
+        "drop_off_rate": 0.7232,
+        "anomaly_score": 1.72,
+        "zone": "navigation",
+        "friction_level": "medium"
+      },
+      {
+        "source": 8,
+        "target": 5,
+        "value": 35,
+        "drop_off_rate": 0.3705,
+        "anomaly_score": 0.46,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 3,
+        "target": 10,
+        "value": 35,
+        "drop_off_rate": 0.1144,
+        "anomaly_score": -0.69,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 0,
+        "target": 6,
+        "value": 34,
+        "drop_off_rate": 0.1325,
+        "anomaly_score": -0.61,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 6,
+        "target": 3,
+        "value": 31,
+        "drop_off_rate": 0.6827,
+        "anomaly_score": 1.59,
+        "zone": "engagement",
+        "friction_level": "medium"
+      },
+      {
+        "source": 0,
+        "target": 5,
+        "value": 26,
+        "drop_off_rate": 0.1325,
+        "anomaly_score": -0.61,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 2,
+        "target": 9,
+        "value": 24,
+        "drop_off_rate": 0.1804,
+        "anomaly_score": -0.42,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 0,
+        "target": 10,
+        "value": 21,
+        "drop_off_rate": 0.1325,
+        "anomaly_score": -0.61,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 10,
+        "target": 3,
+        "value": 18,
+        "drop_off_rate": 0.0,
+        "anomaly_score": -1.39,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 5,
+        "target": 3,
+        "value": 18,
+        "drop_off_rate": 0.1202,
+        "anomaly_score": -0.7,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 0,
+        "target": 7,
+        "value": 14,
+        "drop_off_rate": 0.1325,
+        "anomaly_score": -0.61,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 9,
+        "target": 2,
+        "value": 13,
+        "drop_off_rate": 0.464,
+        "anomaly_score": 0.93,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 2,
+        "target": 10,
+        "value": 13,
+        "drop_off_rate": 0.1804,
+        "anomaly_score": -0.42,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 7,
+        "target": 9,
+        "value": 10,
+        "drop_off_rate": 0.0508,
+        "anomaly_score": -0.99,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 5,
+        "target": 9,
+        "value": 9,
+        "drop_off_rate": 0.1202,
+        "anomaly_score": -0.7,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 7,
+        "target": 8,
+        "value": 9,
+        "drop_off_rate": 0.0508,
+        "anomaly_score": -0.99,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 10,
+        "target": 2,
+        "value": 7,
+        "drop_off_rate": 0.0,
+        "anomaly_score": -1.39,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 2,
+        "target": 5,
+        "value": 6,
+        "drop_off_rate": 0.1804,
+        "anomaly_score": -0.42,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 7,
+        "target": 10,
+        "value": 6,
+        "drop_off_rate": 0.0508,
+        "anomaly_score": -0.99,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 9,
+        "target": 7,
+        "value": 6,
+        "drop_off_rate": 0.464,
+        "anomaly_score": 0.93,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 1,
+        "target": 10,
+        "value": 6,
+        "drop_off_rate": 0.7232,
+        "anomaly_score": 1.72,
+        "zone": "navigation",
+        "friction_level": "medium"
+      },
+      {
+        "source": 5,
+        "target": 2,
+        "value": 6,
+        "drop_off_rate": 0.1202,
+        "anomaly_score": -0.7,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 9,
+        "target": 5,
+        "value": 5,
+        "drop_off_rate": 0.464,
+        "anomaly_score": 0.93,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 8,
+        "target": 7,
+        "value": 5,
+        "drop_off_rate": 0.3705,
+        "anomaly_score": 0.46,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 5,
+        "target": 10,
+        "value": 5,
+        "drop_off_rate": 0.1202,
+        "anomaly_score": -0.7,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 10,
+        "target": 5,
+        "value": 4,
+        "drop_off_rate": 0.0,
+        "anomaly_score": -1.39,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 10,
+        "target": 7,
+        "value": 2,
+        "drop_off_rate": 0.0,
+        "anomaly_score": -1.39,
+        "zone": "commitment",
+        "friction_level": "normal"
+      }
+    ]
+  },
+  "patterns": {
+    "all": [
+      {
+        "path": [
+          "homepage"
+        ],
+        "path_string": "homepage",
+        "count": 1136,
+        "support": 0.1136,
+        "conversion_rate": 0.0,
+        "avg_events": 1.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view",
+        "count": 1042,
+        "support": 0.1042,
+        "conversion_rate": 0.0,
+        "avg_events": 3.0
+      },
+      {
+        "path": [
+          "landing"
+        ],
+        "path_string": "landing",
+        "count": 742,
+        "support": 0.0742,
+        "conversion_rate": 0.0,
+        "avg_events": 1.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view",
+        "count": 601,
+        "support": 0.0601,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "view",
+          "category"
+        ],
+        "path_string": "homepage \u2192 view \u2192 category",
+        "count": 356,
+        "support": 0.0356,
+        "conversion_rate": 0.0,
+        "avg_events": 3.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "add_to_cart"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 add_to_cart",
+        "count": 296,
+        "support": 0.0296,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "view",
+          "category",
+          "view"
+        ],
+        "path_string": "homepage \u2192 view \u2192 category \u2192 view",
+        "count": 286,
+        "support": 0.0286,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view",
+        "count": 280,
+        "support": 0.028,
+        "conversion_rate": 0.0,
+        "avg_events": 3.0
+      },
+      {
+        "path": [
+          "search",
+          "view",
+          "search",
+          "view"
+        ],
+        "path_string": "search \u2192 view \u2192 search \u2192 view",
+        "count": 180,
+        "support": 0.018,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "category",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 category \u2192 view",
+        "count": 178,
+        "support": 0.0178,
+        "conversion_rate": 0.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "category",
+          "view",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 category \u2192 view \u2192 view",
+        "count": 149,
+        "support": 0.0149,
+        "conversion_rate": 0.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "review"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 review",
+        "count": 146,
+        "support": 0.0146,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "search",
+          "view",
+          "search"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 search \u2192 view \u2192 search",
+        "count": 143,
+        "support": 0.0143,
+        "conversion_rate": 0.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "search",
+          "view",
+          "view",
+          "search"
+        ],
+        "path_string": "homepage \u2192 search \u2192 search \u2192 view \u2192 view \u2192 search",
+        "count": 143,
+        "support": 0.0143,
+        "conversion_rate": 0.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "view",
+          "category"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view \u2192 category",
+        "count": 139,
+        "support": 0.0139,
+        "conversion_rate": 0.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "add_to_cart",
+          "checkout"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 checkout",
+        "count": 125,
+        "support": 0.0125,
+        "conversion_rate": 0.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "view",
+          "search",
+          "search"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 view \u2192 search \u2192 search",
+        "count": 118,
+        "support": 0.0118,
+        "conversion_rate": 0.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "add_to_cart",
+          "view"
+        ],
+        "path_string": "homepage \u2192 search \u2192 add_to_cart \u2192 view",
+        "count": 118,
+        "support": 0.0118,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "search",
+          "view",
+          "view",
+          "search"
+        ],
+        "path_string": "search \u2192 view \u2192 view \u2192 search",
+        "count": 112,
+        "support": 0.0112,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "search",
+          "search",
+          "view",
+          "view"
+        ],
+        "path_string": "search \u2192 search \u2192 view \u2192 view",
+        "count": 111,
+        "support": 0.0111,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      }
+    ],
+    "converting": [
+      {
+        "path": [
+          "homepage",
+          "category",
+          "add_to_cart",
+          "view",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 category \u2192 add_to_cart \u2192 view \u2192 checkout \u2192 purchase",
+        "count": 21,
+        "support": 0.0417,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 16,
+        "support": 0.0317,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "checkout",
+          "add_to_cart",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 checkout \u2192 add_to_cart \u2192 purchase",
+        "count": 16,
+        "support": 0.0317,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "landing",
+          "view",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "landing \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 14,
+        "support": 0.0278,
+        "conversion_rate": 1.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "checkout",
+          "view",
+          "add_to_cart",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 category \u2192 checkout \u2192 view \u2192 add_to_cart \u2192 purchase",
+        "count": 13,
+        "support": 0.0258,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 11,
+        "support": 0.0218,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "landing",
+          "view",
+          "add_to_cart",
+          "purchase",
+          "checkout"
+        ],
+        "path_string": "landing \u2192 view \u2192 add_to_cart \u2192 purchase \u2192 checkout",
+        "count": 11,
+        "support": 0.0218,
+        "conversion_rate": 1.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "add_to_cart",
+          "view",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 search \u2192 add_to_cart \u2192 view \u2192 checkout \u2192 purchase",
+        "count": 10,
+        "support": 0.0198,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "add_to_cart",
+          "purchase",
+          "checkout"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 purchase \u2192 checkout",
+        "count": 10,
+        "support": 0.0198,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "view",
+          "category",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 view \u2192 category \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 8,
+        "support": 0.0159,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "landing",
+          "view",
+          "checkout",
+          "add_to_cart",
+          "purchase"
+        ],
+        "path_string": "landing \u2192 view \u2192 checkout \u2192 add_to_cart \u2192 purchase",
+        "count": 8,
+        "support": 0.0159,
+        "conversion_rate": 1.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "purchase",
+          "checkout",
+          "add_to_cart"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 purchase \u2192 checkout \u2192 add_to_cart",
+        "count": 8,
+        "support": 0.0159,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "purchase",
+          "add_to_cart",
+          "checkout"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 purchase \u2192 add_to_cart \u2192 checkout",
+        "count": 7,
+        "support": 0.0139,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "add_to_cart",
+          "category",
+          "view",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 add_to_cart \u2192 category \u2192 view \u2192 checkout \u2192 purchase",
+        "count": 6,
+        "support": 0.0119,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "add_to_cart",
+          "view",
+          "purchase",
+          "checkout"
+        ],
+        "path_string": "homepage \u2192 category \u2192 add_to_cart \u2192 view \u2192 purchase \u2192 checkout",
+        "count": 6,
+        "support": 0.0119,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "landing",
+          "add_to_cart",
+          "view",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "landing \u2192 add_to_cart \u2192 view \u2192 checkout \u2192 purchase",
+        "count": 6,
+        "support": 0.0119,
+        "conversion_rate": 1.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "view",
+          "category",
+          "view",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 view \u2192 category \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 6,
+        "support": 0.0119,
+        "conversion_rate": 1.0,
+        "avg_events": 7.0
+      },
+      {
+        "path": [
+          "homepage",
+          "view",
+          "search",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 view \u2192 search \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 6,
+        "support": 0.0119,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "view",
+          "category",
+          "checkout",
+          "add_to_cart",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 view \u2192 category \u2192 checkout \u2192 add_to_cart \u2192 purchase",
+        "count": 6,
+        "support": 0.0119,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "purchase",
+          "view",
+          "add_to_cart",
+          "checkout"
+        ],
+        "path_string": "homepage \u2192 category \u2192 purchase \u2192 view \u2192 add_to_cart \u2192 checkout",
+        "count": 6,
+        "support": 0.0119,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      }
+    ],
+    "non_converting": [
+      {
+        "path": [
+          "homepage"
+        ],
+        "path_string": "homepage",
+        "count": 1136,
+        "support": 0.1196,
+        "conversion_rate": 0.0,
+        "avg_events": 1.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view",
+        "count": 1042,
+        "support": 0.1097,
+        "conversion_rate": 0.0,
+        "avg_events": 3.0
+      },
+      {
+        "path": [
+          "landing"
+        ],
+        "path_string": "landing",
+        "count": 742,
+        "support": 0.0781,
+        "conversion_rate": 0.0,
+        "avg_events": 1.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view",
+        "count": 601,
+        "support": 0.0633,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "view",
+          "category"
+        ],
+        "path_string": "homepage \u2192 view \u2192 category",
+        "count": 356,
+        "support": 0.0375,
+        "conversion_rate": 0.0,
+        "avg_events": 3.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "add_to_cart"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 add_to_cart",
+        "count": 296,
+        "support": 0.0312,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "view",
+          "category",
+          "view"
+        ],
+        "path_string": "homepage \u2192 view \u2192 category \u2192 view",
+        "count": 286,
+        "support": 0.0301,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view",
+        "count": 280,
+        "support": 0.0295,
+        "conversion_rate": 0.0,
+        "avg_events": 3.0
+      },
+      {
+        "path": [
+          "search",
+          "view",
+          "search",
+          "view"
+        ],
+        "path_string": "search \u2192 view \u2192 search \u2192 view",
+        "count": 180,
+        "support": 0.019,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "category",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 category \u2192 view",
+        "count": 178,
+        "support": 0.0187,
+        "conversion_rate": 0.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "category",
+          "view",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 category \u2192 view \u2192 view",
+        "count": 149,
+        "support": 0.0157,
+        "conversion_rate": 0.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "review"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 review",
+        "count": 146,
+        "support": 0.0154,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "search",
+          "view",
+          "search"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 search \u2192 view \u2192 search",
+        "count": 143,
+        "support": 0.0151,
+        "conversion_rate": 0.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "search",
+          "view",
+          "view",
+          "search"
+        ],
+        "path_string": "homepage \u2192 search \u2192 search \u2192 view \u2192 view \u2192 search",
+        "count": 143,
+        "support": 0.0151,
+        "conversion_rate": 0.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "view",
+          "category"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view \u2192 category",
+        "count": 139,
+        "support": 0.0146,
+        "conversion_rate": 0.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "add_to_cart",
+          "checkout"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 checkout",
+        "count": 125,
+        "support": 0.0132,
+        "conversion_rate": 0.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "view",
+          "search",
+          "search"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 view \u2192 search \u2192 search",
+        "count": 118,
+        "support": 0.0124,
+        "conversion_rate": 0.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "add_to_cart",
+          "view"
+        ],
+        "path_string": "homepage \u2192 search \u2192 add_to_cart \u2192 view",
+        "count": 118,
+        "support": 0.0124,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "search",
+          "view",
+          "view",
+          "search"
+        ],
+        "path_string": "search \u2192 view \u2192 view \u2192 search",
+        "count": 112,
+        "support": 0.0118,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "search",
+          "search",
+          "view",
+          "view"
+        ],
+        "path_string": "search \u2192 search \u2192 view \u2192 view",
+        "count": 111,
+        "support": 0.0117,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      }
+    ],
+    "unique_to_converting": [
+      {
+        "path": [
+          "homepage",
+          "category",
+          "add_to_cart",
+          "view",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 category \u2192 add_to_cart \u2192 view \u2192 checkout \u2192 purchase",
+        "count": 21,
+        "support": 0.0417,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 16,
+        "support": 0.0317,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "checkout",
+          "add_to_cart",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 checkout \u2192 add_to_cart \u2192 purchase",
+        "count": 16,
+        "support": 0.0317,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "landing",
+          "view",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "landing \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 14,
+        "support": 0.0278,
+        "conversion_rate": 1.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "checkout",
+          "view",
+          "add_to_cart",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 category \u2192 checkout \u2192 view \u2192 add_to_cart \u2192 purchase",
+        "count": 13,
+        "support": 0.0258,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 11,
+        "support": 0.0218,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "landing",
+          "view",
+          "add_to_cart",
+          "purchase",
+          "checkout"
+        ],
+        "path_string": "landing \u2192 view \u2192 add_to_cart \u2192 purchase \u2192 checkout",
+        "count": 11,
+        "support": 0.0218,
+        "conversion_rate": 1.0,
+        "avg_events": 5.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "add_to_cart",
+          "view",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 search \u2192 add_to_cart \u2192 view \u2192 checkout \u2192 purchase",
+        "count": 10,
+        "support": 0.0198,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "add_to_cart",
+          "purchase",
+          "checkout"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 purchase \u2192 checkout",
+        "count": 10,
+        "support": 0.0198,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      },
+      {
+        "path": [
+          "homepage",
+          "view",
+          "category",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 view \u2192 category \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 8,
+        "support": 0.0159,
+        "conversion_rate": 1.0,
+        "avg_events": 6.0
+      }
+    ],
+    "unique_to_non_converting": [
+      {
+        "path": [
+          "homepage"
+        ],
+        "path_string": "homepage",
+        "count": 1136,
+        "support": 0.1196,
+        "conversion_rate": 0.0,
+        "avg_events": 1.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view",
+        "count": 1042,
+        "support": 0.1097,
+        "conversion_rate": 0.0,
+        "avg_events": 3.0
+      },
+      {
+        "path": [
+          "landing"
+        ],
+        "path_string": "landing",
+        "count": 742,
+        "support": 0.0781,
+        "conversion_rate": 0.0,
+        "avg_events": 1.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view",
+        "count": 601,
+        "support": 0.0633,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "view",
+          "category"
+        ],
+        "path_string": "homepage \u2192 view \u2192 category",
+        "count": 356,
+        "support": 0.0375,
+        "conversion_rate": 0.0,
+        "avg_events": 3.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "add_to_cart"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 add_to_cart",
+        "count": 296,
+        "support": 0.0312,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "view",
+          "category",
+          "view"
+        ],
+        "path_string": "homepage \u2192 view \u2192 category \u2192 view",
+        "count": 286,
+        "support": 0.0301,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view",
+        "count": 280,
+        "support": 0.0295,
+        "conversion_rate": 0.0,
+        "avg_events": 3.0
+      },
+      {
+        "path": [
+          "search",
+          "view",
+          "search",
+          "view"
+        ],
+        "path_string": "search \u2192 view \u2192 search \u2192 view",
+        "count": 180,
+        "support": 0.019,
+        "conversion_rate": 0.0,
+        "avg_events": 4.0
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "category",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 category \u2192 view",
+        "count": 178,
+        "support": 0.0187,
+        "conversion_rate": 0.0,
+        "avg_events": 5.0
+      }
+    ]
+  },
+  "friction": {
+    "scores": [
+      {
+        "step": "landing",
+        "drop_off": 0.723196881091618,
+        "zone": "navigation",
+        "zone_baseline": 0.2876,
+        "z_score": 1.72,
+        "friction_level": "medium",
+        "sessions_at_step": 1026,
+        "sessions_exiting": 742
+      },
+      {
+        "step": "review",
+        "drop_off": 0.6826923076923077,
+        "zone": "engagement",
+        "zone_baseline": 0.2931,
+        "z_score": 1.59,
+        "friction_level": "medium",
+        "sessions_at_step": 312,
+        "sessions_exiting": 213
+      },
+      {
+        "step": "checkout",
+        "drop_off": 0.46397058823529413,
+        "zone": "commitment",
+        "zone_baseline": 0.2782,
+        "z_score": 0.93,
+        "friction_level": "normal",
+        "sessions_at_step": 1360,
+        "sessions_exiting": 631
+      },
+      {
+        "step": "add_to_cart",
+        "drop_off": 0.3705092158700406,
+        "zone": "commitment",
+        "zone_baseline": 0.2782,
+        "z_score": 0.46,
+        "friction_level": "normal",
+        "sessions_at_step": 3201,
+        "sessions_exiting": 1186
+      },
+      {
+        "step": "view",
+        "drop_off": 0.31883838765786887,
+        "zone": "engagement",
+        "zone_baseline": 0.2931,
+        "z_score": 0.1,
+        "friction_level": "normal",
+        "sessions_at_step": 13223,
+        "sessions_exiting": 4216
+      },
+      {
+        "step": "search",
+        "drop_off": 0.18041237113402062,
+        "zone": "navigation",
+        "zone_baseline": 0.2876,
+        "z_score": -0.42,
+        "friction_level": "normal",
+        "sessions_at_step": 4462,
+        "sessions_exiting": 805
+      },
+      {
+        "step": "homepage",
+        "drop_off": 0.1325399603313499,
+        "zone": "navigation",
+        "zone_baseline": 0.2876,
+        "z_score": -0.61,
+        "friction_level": "normal",
+        "sessions_at_step": 8571,
+        "sessions_exiting": 1136
+      },
+      {
+        "step": "category",
+        "drop_off": 0.11439336850037679,
+        "zone": "navigation",
+        "zone_baseline": 0.2876,
+        "z_score": -0.69,
+        "friction_level": "normal",
+        "sessions_at_step": 6635,
+        "sessions_exiting": 759
+      },
+      {
+        "step": "size_guide",
+        "drop_off": 0.12017167381974249,
+        "zone": "engagement",
+        "zone_baseline": 0.2931,
+        "z_score": -0.7,
+        "friction_level": "normal",
+        "sessions_at_step": 233,
+        "sessions_exiting": 28
+      },
+      {
+        "step": "wishlist",
+        "drop_off": 0.05078125,
+        "zone": "engagement",
+        "zone_baseline": 0.2931,
+        "z_score": -0.99,
+        "friction_level": "normal",
+        "sessions_at_step": 256,
+        "sessions_exiting": 13
+      },
+      {
+        "step": "purchase",
+        "drop_off": 0.0,
+        "zone": "commitment",
+        "zone_baseline": 0.2782,
+        "z_score": -1.39,
+        "friction_level": "normal",
+        "sessions_at_step": 504,
+        "sessions_exiting": 0
+      }
+    ],
+    "patterns_detected": [
+      {
+        "type": "deep_browse_no_action",
+        "description": "User views 5+ pages but never adds to cart \u2014 engaged but no intent signal",
+        "sessions_affected": 2013,
+        "pct_of_total": 20.1,
+        "conversion_rate": 0.0
+      },
+      {
+        "type": "single_page_exit",
+        "description": "User views only one page and leaves \u2014 content or relevance mismatch",
+        "sessions_affected": 1878,
+        "pct_of_total": 18.8,
+        "conversion_rate": 0.0
+      },
+      {
+        "type": "checkout_abandonment",
+        "description": "User reaches checkout but does not purchase \u2014 payment or shipping friction",
+        "sessions_affected": 856,
+        "pct_of_total": 8.6,
+        "conversion_rate": 0.0
+      },
+      {
+        "type": "search_frustration_loop",
+        "description": "User searches 3+ times in a session \u2014 likely can't find what they want",
+        "sessions_affected": 843,
+        "pct_of_total": 8.4,
+        "conversion_rate": 0.0
+      },
+      {
+        "type": "cart_hesitation",
+        "description": "User adds to cart but returns to viewing \u2014 price or size uncertainty",
+        "sessions_affected": 833,
+        "pct_of_total": 8.3,
+        "conversion_rate": 0.1285
+      },
+      {
+        "type": "bounce_back_browse",
+        "description": "User goes category \u2192 product \u2192 category \u2192 product \u2014 browsing without conviction",
+        "sessions_affected": 174,
+        "pct_of_total": 1.7,
+        "conversion_rate": 0.0
+      }
+    ]
+  },
+  "transition_matrix": {
+    "all": {
+      "[start]": {
+        "homepage": 0.8571,
+        "landing": 0.1026,
+        "search": 0.0403
+      },
+      "homepage": {
+        "category": 0.424,
+        "view": 0.2323,
+        "search": 0.1637,
+        "[exit]": 0.1325,
+        "add_to_cart": 0.0294,
+        "checkout": 0.007,
+        "review": 0.004,
+        "size_guide": 0.003,
+        "purchase": 0.0025,
+        "wishlist": 0.0016
+      },
+      "search": {
+        "view": 0.5399,
+        "search": 0.2091,
+        "[exit]": 0.1804,
+        "add_to_cart": 0.061,
+        "checkout": 0.0054,
+        "purchase": 0.0029,
+        "size_guide": 0.0013
+      },
+      "view": {
+        "[exit]": 0.3188,
+        "view": 0.203,
+        "category": 0.1686,
+        "search": 0.1219,
+        "add_to_cart": 0.1165,
+        "checkout": 0.0324,
+        "review": 0.0115,
+        "wishlist": 0.0101,
+        "purchase": 0.0096,
+        "size_guide": 0.0075
+      },
+      "landing": {
+        "[exit]": 0.7232,
+        "view": 0.1832,
+        "add_to_cart": 0.0487,
+        "checkout": 0.039,
+        "purchase": 0.0058
+      },
+      "checkout": {
+        "[exit]": 0.464,
+        "add_to_cart": 0.1978,
+        "view": 0.1632,
+        "purchase": 0.114,
+        "category": 0.0434,
+        "search": 0.0096,
+        "wishlist": 0.0044,
+        "size_guide": 0.0037
+      },
+      "add_to_cart": {
+        "[exit]": 0.3705,
+        "view": 0.2709,
+        "checkout": 0.1546,
+        "add_to_cart": 0.0634,
+        "category": 0.059,
+        "purchase": 0.0425,
+        "search": 0.0266,
+        "size_guide": 0.0109,
+        "wishlist": 0.0016
+      },
+      "category": {
+        "view": 0.6773,
+        "[exit]": 0.1144,
+        "add_to_cart": 0.0745,
+        "category": 0.0564,
+        "checkout": 0.0301,
+        "review": 0.019,
+        "wishlist": 0.0143,
+        "size_guide": 0.0087,
+        "purchase": 0.0053
+      },
+      "review": {
+        "[exit]": 0.6827,
+        "view": 0.2179,
+        "category": 0.0994
+      },
+      "purchase": {
+        "[exit]": 0.5377,
+        "checkout": 0.1845,
+        "add_to_cart": 0.123,
+        "view": 0.0933,
+        "category": 0.0357,
+        "search": 0.0139,
+        "size_guide": 0.0079,
+        "wishlist": 0.004
+      },
+      "size_guide": {
+        "view": 0.5021,
+        "add_to_cart": 0.2146,
+        "[exit]": 0.1202,
+        "category": 0.0773,
+        "checkout": 0.0386,
+        "search": 0.0258,
+        "purchase": 0.0215
+      },
+      "wishlist": {
+        "view": 0.5312,
+        "category": 0.3203,
+        "[exit]": 0.0508,
+        "checkout": 0.0391,
+        "add_to_cart": 0.0352,
+        "purchase": 0.0234
+      }
+    },
+    "converting": {
+      "[start]": {
+        "homepage": 0.8651,
+        "landing": 0.1349
+      },
+      "homepage": {
+        "category": 0.4794,
+        "view": 0.2362,
+        "search": 0.1216,
+        "add_to_cart": 0.0665,
+        "purchase": 0.0482,
+        "checkout": 0.0413,
+        "size_guide": 0.0046,
+        "wishlist": 0.0023
+      },
+      "purchase": {
+        "[exit]": 0.5377,
+        "checkout": 0.1845,
+        "add_to_cart": 0.123,
+        "view": 0.0933,
+        "category": 0.0357,
+        "search": 0.0139,
+        "size_guide": 0.0079,
+        "wishlist": 0.004
+      },
+      "category": {
+        "view": 0.4692,
+        "add_to_cart": 0.2375,
+        "checkout": 0.173,
+        "purchase": 0.1026,
+        "wishlist": 0.0176
+      },
+      "view": {
+        "add_to_cart": 0.2961,
+        "checkout": 0.2403,
+        "purchase": 0.1969,
+        "category": 0.1054,
+        "view": 0.0884,
+        "search": 0.0264,
+        "wishlist": 0.0233,
+        "[exit]": 0.0202,
+        "size_guide": 0.0031
+      },
+      "checkout": {
+        "purchase": 0.3075,
+        "[exit]": 0.2976,
+        "add_to_cart": 0.1766,
+        "view": 0.1627,
+        "category": 0.0238,
+        "search": 0.0179,
+        "size_guide": 0.0079,
+        "wishlist": 0.006
+      },
+      "add_to_cart": {
+        "checkout": 0.2956,
+        "purchase": 0.2698,
+        "view": 0.2123,
+        "[exit]": 0.1349,
+        "category": 0.0615,
+        "search": 0.0119,
+        "size_guide": 0.0079,
+        "wishlist": 0.006
+      },
+      "landing": {
+        "view": 0.6029,
+        "add_to_cart": 0.1912,
+        "checkout": 0.1176,
+        "purchase": 0.0882
+      },
+      "search": {
+        "view": 0.3684,
+        "add_to_cart": 0.3053,
+        "checkout": 0.1474,
+        "purchase": 0.1368,
+        "size_guide": 0.0421
+      },
+      "size_guide": {
+        "add_to_cart": 0.25,
+        "purchase": 0.25,
+        "view": 0.2,
+        "search": 0.15,
+        "checkout": 0.1,
+        "[exit]": 0.05
+      },
+      "wishlist": {
+        "view": 0.3,
+        "checkout": 0.2,
+        "purchase": 0.2,
+        "add_to_cart": 0.1667,
+        "category": 0.1,
+        "[exit]": 0.0333
+      }
+    },
+    "non_converting": {
+      "[start]": {
+        "homepage": 0.8567,
+        "landing": 0.1009,
+        "search": 0.0424
+      },
+      "homepage": {
+        "category": 0.421,
+        "view": 0.2321,
+        "search": 0.1659,
+        "[exit]": 0.1396,
+        "add_to_cart": 0.0274,
+        "checkout": 0.0052,
+        "review": 0.0042,
+        "size_guide": 0.003,
+        "wishlist": 0.0016
+      },
+      "search": {
+        "view": 0.5436,
+        "search": 0.2136,
+        "[exit]": 0.1843,
+        "add_to_cart": 0.0556,
+        "checkout": 0.0023,
+        "size_guide": 0.0005
+      },
+      "view": {
+        "[exit]": 0.3342,
+        "view": 0.2089,
+        "category": 0.1719,
+        "search": 0.1268,
+        "add_to_cart": 0.1073,
+        "checkout": 0.0218,
+        "review": 0.0121,
+        "wishlist": 0.0095,
+        "size_guide": 0.0077
+      },
+      "landing": {
+        "[exit]": 0.7745,
+        "view": 0.1534,
+        "add_to_cart": 0.0386,
+        "checkout": 0.0334
+      },
+      "checkout": {
+        "[exit]": 0.5619,
+        "add_to_cart": 0.2103,
+        "view": 0.1636,
+        "category": 0.0549,
+        "search": 0.0047,
+        "wishlist": 0.0035,
+        "size_guide": 0.0012
+      },
+      "add_to_cart": {
+        "[exit]": 0.4145,
+        "view": 0.2818,
+        "checkout": 0.1283,
+        "add_to_cart": 0.0753,
+        "category": 0.0586,
+        "search": 0.0293,
+        "size_guide": 0.0115,
+        "wishlist": 0.0007
+      },
+      "category": {
+        "view": 0.6886,
+        "[exit]": 0.1206,
+        "add_to_cart": 0.0656,
+        "category": 0.0594,
+        "checkout": 0.0224,
+        "review": 0.02,
+        "wishlist": 0.0141,
+        "size_guide": 0.0092
+      },
+      "review": {
+        "[exit]": 0.6827,
+        "view": 0.2179,
+        "category": 0.0994
+      },
+      "size_guide": {
+        "view": 0.5305,
+        "add_to_cart": 0.2113,
+        "[exit]": 0.1268,
+        "category": 0.0845,
+        "checkout": 0.0329,
+        "search": 0.0141
+      },
+      "wishlist": {
+        "view": 0.5619,
+        "category": 0.3496,
+        "[exit]": 0.0531,
+        "checkout": 0.0177,
+        "add_to_cart": 0.0177
+      }
+    }
+  }
+}
