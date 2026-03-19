@@ -102,7 +102,7 @@ def load_rees46(filepath: str, sample_sessions: int = 10000) -> pd.DataFrame:
     # Clean
     df = df.dropna(subset=['user_session', 'event_type'])
     df['category'] = df['category_code'].fillna('unknown').apply(
-        lambda x: x.split('.')[0] if isinstance(x, str) else 'unknown'
+        lambda x: '.'.join(x.split('.')[:2]) if isinstance(x, str) else 'unknown'
     )
     df['price'] = df['price'].fillna(0)
     df['product_id'] = df['product_id'].fillna(0).astype(str)
@@ -561,11 +561,16 @@ def compute_anomaly_scores(sessions: List[ProcessedSession]) -> Dict:
         zone_rates[zone].append((step, rate))
     
     zone_stats = {}
+    # Global pooled std for data-derived floor
+    all_rates = [r[1] for rates in zone_rates.values() for r in rates]
+    global_std = np.std(all_rates, ddof=1) if len(all_rates) > 1 else 0.1
+    min_std = global_std * 0.25
+    
     for zone, rates in zone_rates.items():
         values = [r[1] for r in rates]
         zone_stats[zone] = {
             'mean': np.mean(values) if values else 0,
-            'std': max(np.std(values, ddof=1), min_std) if len(values) > 1 else min_std,  # minimum std to avoid division by zero
+            'std': max(np.std(values, ddof=1), min_std) if len(values) > 1 else min_std,
             'count': len(values)
         }
     
@@ -576,7 +581,7 @@ def compute_anomaly_scores(sessions: List[ProcessedSession]) -> Dict:
         stats = zone_stats[zone]
         
         # Z-score within zone
-        z_score = (rate - stats['mean']) / max(stats['std'], 0.01)
+        z_score = (rate - stats['mean']) / max(stats['std'], min_std)
         
         # Determine friction level
         if z_score > 2.0:
