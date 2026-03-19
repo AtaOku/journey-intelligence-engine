@@ -47,6 +47,8 @@ function buildFrictionMap(friction: FrictionData): Map<string, FrictionScore> {
 export function SankeyCanvas({ data, friction }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [showFriction, setShowFriction] = useState(true);
+  const showFrictionRef = useRef(showFriction);
+  showFrictionRef.current = showFriction;
   const [highlightedNode, setHighlightedNode] = useState<string | null>(null);
   const [tooltip, setTooltip] = useState<TooltipState>({ visible: false });
 
@@ -77,13 +79,21 @@ export function SankeyCanvas({ data, friction }: Props) {
     const nodeMap = new Map(data.nodes.map((n) => [n.id, n.name]));
 
     const sankeyNodes = data.nodes.map((n) => ({ ...n }));
-    const sankeyLinks = data.links
+    const filteredLinks = data.links
       .filter((l) => {
         if (l.value <= 0 || l.source === l.target) return false;
         const srcStage = STAGE_ORDER[nodeMap.get(l.source) ?? ''] ?? -1;
         const tgtStage = STAGE_ORDER[nodeMap.get(l.target) ?? ''] ?? -1;
         return tgtStage > srcStage || (tgtStage === srcStage && l.target > l.source);
-      })
+      });
+
+    // Cap at top 50 links by volume for performance + readability.
+    // For showcase data (~15 links) this is a no-op; for large uploads it prevents
+    // 200+ gradient definitions and unreadable spaghetti.
+    const MAX_LINKS = 50;
+    const sankeyLinks = filteredLinks
+      .sort((a, b) => b.value - a.value)
+      .slice(0, MAX_LINKS)
       .map((l) => ({ ...l }));
 
     const sankeyGen = sankey<any, any>()
@@ -213,7 +223,7 @@ export function SankeyCanvas({ data, friction }: Props) {
           .transition()
           .duration(300)
           .attr('stroke-opacity', (dd: any) => {
-            if (showFriction) {
+            if (showFrictionRef.current) {
               const level = dd.friction_level || 'normal';
               if (level === 'high') return 0.75;
               if (level === 'medium') return 0.55;
@@ -308,7 +318,7 @@ export function SankeyCanvas({ data, friction }: Props) {
           .transition()
           .duration(300)
           .attr('stroke-opacity', (d: any) => {
-            if (showFriction) {
+            if (showFrictionRef.current) {
               const level = d.friction_level || 'normal';
               if (level === 'high') return 0.75;
               if (level === 'medium') return 0.55;
@@ -364,7 +374,29 @@ export function SankeyCanvas({ data, friction }: Props) {
       .delay(600)
       .attr('opacity', 1);
 
-  }, [data, friction, showFriction, frictionMap]);
+  }, [data, friction, frictionMap]);
+
+  // ── Style-only effect: update link colors when friction toggle changes ──
+  // Avoids full D3 layout recomputation + DOM rebuild on toggle
+  useEffect(() => {
+    if (!svgRef.current) return;
+    const svg = d3.select(svgRef.current);
+    svg.selectAll('.links path').each(function (d: any, i: number) {
+      const level = d.friction_level || 'normal';
+      d3.select(this)
+        .attr('stroke', () => {
+          if (showFriction && level !== 'normal') return FRICTION_COLORS[level];
+          return `url(#link-grad-${i})`;
+        })
+        .attr('stroke-opacity', () => {
+          if (showFriction) {
+            if (level === 'high') return 0.75;
+            if (level === 'medium') return 0.55;
+          }
+          return 0.35;
+        });
+    });
+  }, [showFriction]);
 
   // ── Render ──
   return (

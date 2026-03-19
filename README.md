@@ -1,121 +1,96 @@
-# 🔍 Fashion E-Commerce Return Root Cause Diagnosis
+# Journey Intelligence Engine
 
-**Bayesian Network Backward Inference for Diagnosing Hidden Return Reasons**
+**Path-level e-commerce journey analysis with friction detection**
 
-> Course: Introduction to Artificial Intelligence (IN2062) · TUM · Prof. Dr.-Ing. Matthias Althoff  
-> Author: Ata Okuzcuoglu · MSc Management & Technology (Marketing + CS)
-
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://bayesian-marketing-attribution-model.streamlit.app)
+Upload any e-commerce clickstream CSV → automatic journey flow visualization, zone-relative anomaly scoring, and friction pattern detection. All computation runs client-side — your data never leaves the browser.
 
 ---
 
 ## The Problem
 
-Fashion e-commerce suffers from return rates of **25-40%**, costing the industry **$218 billion globally** (Radial, 2024). Analytics dashboards show *which* items are returned — but cannot answer **why**.
+E-commerce teams see aggregate conversion rates but can't answer path-level questions: *Where exactly do users drop off? Is this drop-off rate abnormal for this funnel stage? Which behavioral patterns predict non-conversion?*
 
-Customer-reported reasons are unreliable: surveys show only 30-40% completion, and customers frequently misreport the true reason. Meanwhile, the actual breakdown (Coresight, 2023; Rocket Returns, 2025):
+GA4 shows what happened. This tool shows where the friction is and why it matters.
 
-| Root Cause | Share of Returns |
-|---|---|
-| Size / Fit Mismatch | 53–70% |
-| Style / Expectation Gap | 16–23% |
-| Quality / Damage | 10–13% |
-| Impulse / Buyer's Regret | 8–15% |
-| Intentional Bracketing | ~15% (multi-brand) |
+## How It Works
 
-## The Solution: Backward Inference
+**Zone-relative anomaly scoring:** Each step's drop-off rate is scored against its funnel zone peers (navigation, engagement, commitment), not the global average. A 40% bounce on the homepage is normal; a 40% exit at checkout is a five-alarm fire. The system uses z-scores within zones to surface genuinely anomalous friction points.
 
-This tool uses a **Bayesian Network** to reason *backward* from observed signals to hidden causes:
+**Friction pattern detection:** Six behavioral signatures are detected from session sequences: search frustration loops, cart hesitation, bounce-back browsing, checkout abandonment, single-page exits, and deep-browse-no-action.
 
-```
-Given: returned = Yes + observable order signals
-Infer: P(root_cause | evidence) for 5 competing causes
-Find:  Which cause has the highest diagnostic lift?
-```
+**Business impact estimation:** Top friction points are translated to projected annual revenue impact based on rescueable sessions × downstream conversion rate × AOV.
 
-**Why BN and not regression?** Regression predicts *P(returned | features)* — whether a return happens. A BN computes *P(cause | returned=Yes, signals)* — **why** it happened. This is the information merchandising teams need.
+## Features
 
-## Network Architecture
+- **Sankey journey canvas** — D3-powered flow visualization with friction overlay toggle
+- **Showcase mode** — 10K synthetic sessions with embedded friction points, instant demo
+- **Upload mode** — Drop in a CSV (REES46, standard format), auto-detected
+- **Pattern intelligence** — Converting vs non-converting path comparison
+- **Zero backend** — All computation in TypeScript, client-side
+
+## Architecture
 
 ```
-OBSERVABLE (12 nodes)              ROOT CAUSES (5)              OUTCOME
-═══════════════════════            ═══════════════              ═══════
+engine/              Pure computation (no UI dependencies)
+├── csvParser.ts         Format detection, column mapping, sessionization
+├── anomalyScoring.ts    Zone-relative z-score friction scoring
+├── frictionPatterns.ts  Behavioral pattern detectors (6 signatures)
+└── transitionMatrix.ts  Markov transition probabilities
 
-size_sensitive_category ──┐
-is_first_purchase ────────┼──→ 👗 SIZE_MISMATCH ─────────┐
-viewed_size_guide ────────┤                               │
-mobile_purchase ──────────┘                               │
-                                                          │
-premium_price ────────────┐                               │
-is_first_purchase ────────┼──→ 📸 EXPECTATION_GAP ───────┤
-mobile_purchase ──────────┘                               ├──→ RETURNED
-                                                          │    (Noisy-OR)
-purchased_on_discount ────┐                               │
-social_media_referral ────┼──→ 💸 IMPULSE_REGRET ────────┤
-mobile_purchase ──────────┤                               │
-young_customer ───────────┘                               │
-                                                          │
-multi_size_order ─────────┐                               │
-young_customer ───────────┼──→ 🔄 BRACKETING ────────────┤
-high_return_history ──────┘                               │
-                                                          │
-slow_delivery ────────────┐                               │
-multiple_items_in_order ──┼──→ 📦 QUALITY/DAMAGE ────────┘
-premium_price ────────────┘
+api/                 Data source abstraction
+├── types.ts             Shared contract (Python pipeline ↔ TS engine ↔ React)
+├── staticDataSource.ts  Pre-generated showcase data
+└── clientSideDataSource.ts  CSV → full analysis pipeline (browser)
+
+config/              Domain knowledge
+└── zoneClassification.ts  Zone taxonomy, step labels, colors
+
+ui/                  React presentation layer
+├── SankeyCanvas.tsx     D3 Sankey + friction overlay + interactive tooltips
+├── SummaryStats.tsx     Hero metrics + €-impact estimation
+├── FrictionCards.tsx    Anomaly step cards + behavioral pattern list
+├── PatternTable.tsx     Journey pattern comparison table
+└── DataToggle.tsx       Showcase / upload mode switcher
 ```
-
-**18 nodes · 22 edges · All binary · 2¹⁸ = 262,144 states · Exact inference**
-
-## Key Features
-
-- **Root Cause Diagnosis** — Set evidence, see which of 5 causes has the highest posterior probability
-- **Diagnostic Lift** — P(cause|evidence) / P(cause) reveals which cause the evidence supports most
-- **What-If Simulation** — Change one signal and see how return probability shifts
-- **Academic Methodology Tab** — Full formal definition, CPT calibration, Noisy-OR model
-- **17 Research Citations** — Every CPT parameter grounded in industry data
-- **Quick Presets** — 5 realistic scenarios to demonstrate different diagnosis patterns
-
-## Example Diagnoses
-
-| Scenario | Top Diagnosis | Lift |
-|---|---|---|
-| Dress + New Customer + Mobile + No Size Guide | 👗 Size Mismatch | 3.42x |
-| Multi-Size Order + Young Customer | 🔄 Bracketing | 12.05x |
-| Instagram + Discount + Mobile + Young | 💸 Impulse Regret | 3.62x |
-| Slow Delivery + Premium + Multi-Item | 📦 Quality/Damage | 5.56x |
 
 ## Tech Stack
 
-- **Engine:** Custom BayesNet class with exact enumeration inference (Russell & Norvig Fig. 14.9)
-- **Frontend:** Streamlit
-- **No external ML libraries** — Built from first principles to demonstrate understanding
+React 19 · TypeScript · D3 + d3-sankey · Tailwind CSS v4 · Vite 8 · Vercel
 
 ## Running Locally
 
 ```bash
-pip install -r requirements.txt
-streamlit run app.py
+npm install
+npm run dev
 ```
 
-## References
+To regenerate showcase data (requires Python 3.8+):
 
-See the full References tab in the app for 17 citations. Key sources:
+```bash
+pip install pandas numpy
+python analysis_pipeline.py --source synthetic --sessions 10000 --output public/showcase_data.json
+```
 
-1. Coresight Research (2023). "The True Cost of Apparel Returns"
-2. Radial (2024). "Tech Takes on E-Commerce's $218 Billion Returns Problem"
-3. Rocket Returns (2025). "Ecommerce Return Rates: Complete Industry Analysis"
-4. AfterShip (2024). "Returns: Fashion's $218 Billion Problem"
-5. Landmark Global (2025). "Wardrobing & Bracketing: Serial Returners"
-6. Russell & Norvig (2021). *AI: A Modern Approach*, 4th ed., Ch. 13-14
+## Methodology
+
+**Anomaly scoring:** Drop-off rates are computed per step, then z-scored within their funnel zone (navigation, engagement, commitment). This prevents comparing homepage bounce rates against checkout abandonment — they operate in fundamentally different contexts. Steps scoring z > 2.0 are flagged as high friction; z > 1.5 as medium.
+
+**Friction patterns:** Six heuristic detectors scan session event sequences for known behavioral signatures. Each pattern reports affected session count, percentage of total, and the conversion rate of sessions matching that pattern versus overall.
+
+**Showcase data:** 10,000 synthetic sessions generated from probabilistic journey templates with deliberate friction points embedded. Distributions calibrated against Baymard Institute benchmarks and Contentsquare 2024 Digital Experience data.
 
 ## Part of the MarTech × AI Portfolio
 
-This is **Project 2** in a portfolio demonstrating AI techniques applied to marketing:
-- Project 1: CSP-Based Campaign & Budget Planner
-- **Project 2: BN Return Root Cause Diagnosis** ← You are here
-- Project 3: HMM-Based Customer Lifecycle Segmentation (planned)
-- Project 4: MDP for Dynamic Pricing Strategy (planned)
+| # | Project | AI Technique | Status |
+|---|---------|-------------|--------|
+| 1 | [ContentEngine AI](https://contentengine-v6.vercel.app) | LLM batch pipeline | ✅ Live |
+| 2 | [CSP Campaign Planner](https://csp-campaign-planner.streamlit.app) | Constraint satisfaction | ✅ Live |
+| 3 | [Bayesian Return Diagnosis](https://bayesian-marketing-attribution-model.streamlit.app) | Bayesian Networks | ✅ Live |
+| 4 | [Competitor Intel Monitor](https://competitor-intel-monitor.netlify.app) | NLP + sentiment | ✅ Live |
+| 5 | **Journey Intelligence Engine** | Markov chains + anomaly scoring | ← You are here |
+| 6 | MDP Optimal Contact Policy | Markov Decision Process | Planned |
+| 7 | Logic Compliance Engine | Propositional/FOL logic | Planned |
 
 ---
 
-*Built by Ata Okuzcuoglu · TUM MSc Management & Technology · 2025*
+*Built by Ata Okuzcuoglu · TUM MSc Management & Technology · 2026*

@@ -1,13 +1,13 @@
 {
   "metadata": {
     "total_sessions": 10000,
-    "converting_sessions": 414,
-    "conversion_rate": 0.0414,
-    "avg_events_per_session": 2.0,
-    "avg_session_value": 137.94,
+    "converting_sessions": 328,
+    "conversion_rate": 0.0328,
+    "avg_events_per_session": 4.0,
+    "avg_session_value": 155.45,
     "data_source": "synthetic_showcase",
-    "generated_at": "2026-03-18T23:49:13.641923+00:00",
-    "n_friction_points": 2,
+    "generated_at": "2026-03-19T01:06:47.382653+00:00",
+    "n_friction_points": 1,
     "top_friction_step": "landing"
   },
   "sankey": {
@@ -30,120 +30,164 @@
       },
       {
         "id": 4,
-        "name": "view"
+        "name": "review"
       },
       {
         "id": 5,
-        "name": "add_to_cart"
+        "name": "size_guide"
       },
       {
         "id": 6,
-        "name": "checkout"
+        "name": "view"
       },
       {
         "id": 7,
+        "name": "add_to_cart"
+      },
+      {
+        "id": 8,
+        "name": "checkout"
+      },
+      {
+        "id": 9,
         "name": "purchase"
       }
     ],
     "links": [
       {
+        "source": 0,
+        "target": 6,
+        "value": 7586,
+        "drop_off_rate": 0.0437,
+        "anomaly_score": -0.63,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
         "source": 1,
-        "target": 4,
-        "value": 3312,
-        "drop_off_rate": 0.2406,
-        "anomaly_score": -0.71,
+        "target": 0,
+        "value": 5274,
+        "drop_off_rate": 0.0798,
+        "anomaly_score": -0.55,
         "zone": "navigation",
         "friction_level": "normal"
       },
       {
         "source": 3,
-        "target": 4,
-        "value": 1886,
-        "drop_off_rate": 0.2455,
-        "anomaly_score": -0.68,
-        "zone": "navigation",
-        "friction_level": "normal"
-      },
-      {
-        "source": 0,
-        "target": 4,
-        "value": 1363,
-        "drop_off_rate": 0.2991,
-        "anomaly_score": -0.33,
-        "zone": "navigation",
-        "friction_level": "normal"
-      },
-      {
-        "source": 4,
-        "target": 5,
-        "value": 1210,
-        "drop_off_rate": 0.8249,
-        "anomaly_score": 0.0,
-        "zone": "engagement",
-        "friction_level": "normal"
-      },
-      {
-        "source": 5,
         "target": 6,
-        "value": 833,
-        "drop_off_rate": 0.4063,
-        "anomaly_score": -1.0,
-        "zone": "commitment",
+        "value": 3961,
+        "drop_off_rate": 0.1948,
+        "anomaly_score": -0.3,
+        "zone": "navigation",
+        "friction_level": "normal"
+      },
+      {
+        "source": 6,
+        "target": 6,
+        "value": 3063,
+        "drop_off_rate": 0.3564,
+        "anomaly_score": -0.15,
+        "zone": "engagement",
         "friction_level": "normal"
       },
       {
         "source": 6,
         "target": 7,
-        "value": 414,
-        "drop_off_rate": 0.503,
-        "anomaly_score": 1.0,
-        "zone": "commitment",
-        "friction_level": "medium"
+        "value": 2404,
+        "drop_off_rate": 0.3564,
+        "anomaly_score": -0.15,
+        "zone": "engagement",
+        "friction_level": "normal"
       },
       {
-        "source": 2,
-        "target": 4,
-        "value": 351,
-        "drop_off_rate": 0.6096,
-        "anomaly_score": 1.71,
-        "zone": "navigation",
-        "friction_level": "high"
+        "source": 6,
+        "target": 3,
+        "value": 2348,
+        "drop_off_rate": 0.3564,
+        "anomaly_score": -0.15,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 6,
+        "target": 0,
+        "value": 1917,
+        "drop_off_rate": 0.3564,
+        "anomaly_score": -0.15,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 7,
+        "target": 8,
+        "value": 1091,
+        "drop_off_rate": 0.2139,
+        "anomaly_score": -0.71,
+        "zone": "commitment",
+        "friction_level": "normal"
+      },
+      {
+        "source": 7,
+        "target": 6,
+        "value": 842,
+        "drop_off_rate": 0.2139,
+        "anomaly_score": -0.71,
+        "zone": "commitment",
+        "friction_level": "normal"
       },
       {
         "source": 1,
-        "target": 5,
-        "value": 85,
-        "drop_off_rate": 0.2406,
-        "anomaly_score": -0.71,
+        "target": 3,
+        "value": 839,
+        "drop_off_rate": 0.0798,
+        "anomaly_score": -0.55,
         "zone": "navigation",
         "friction_level": "normal"
       },
       {
-        "source": 3,
-        "target": 5,
-        "value": 47,
-        "drop_off_rate": 0.2455,
-        "anomaly_score": -0.68,
-        "zone": "navigation",
+        "source": 8,
+        "target": 9,
+        "value": 328,
+        "drop_off_rate": 0.6994,
+        "anomaly_score": 0.71,
+        "zone": "commitment",
         "friction_level": "normal"
       },
       {
-        "source": 0,
-        "target": 5,
-        "value": 31,
-        "drop_off_rate": 0.2991,
-        "anomaly_score": -0.33,
-        "zone": "navigation",
+        "source": 6,
+        "target": 4,
+        "value": 299,
+        "drop_off_rate": 0.3564,
+        "anomaly_score": -0.15,
+        "zone": "engagement",
         "friction_level": "normal"
       },
       {
-        "source": 2,
+        "source": 6,
         "target": 5,
-        "value": 30,
-        "drop_off_rate": 0.6096,
-        "anomaly_score": 1.71,
-        "zone": "navigation",
-        "friction_level": "high"
+        "value": 32,
+        "drop_off_rate": 0.3564,
+        "anomaly_score": -0.15,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 5,
+        "target": 7,
+        "value": 32,
+        "drop_off_rate": 0.0,
+        "anomaly_score": -0.92,
+        "zone": "engagement",
+        "friction_level": "normal"
+      },
+      {
+        "source": 4,
+        "target": 7,
+        "value": 23,
+        "drop_off_rate": 0.9231,
+        "anomaly_score": 1.07,
+        "zone": "engagement",
+        "friction_level": "normal"
       }
     ]
   },
@@ -152,13 +196,58 @@
       {
         "path": [
           "homepage",
+          "category",
           "view"
         ],
-        "path_string": "homepage \u2192 view",
-        "count": 2731,
-        "support": 0.2731,
+        "path_string": "homepage \u2192 category \u2192 view",
+        "count": 1622,
+        "support": 0.1622,
         "conversion_rate": 0.0,
-        "avg_events": 2
+        "avg_events": 3
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view",
+        "count": 1064,
+        "support": 0.1064,
+        "conversion_rate": 0.0,
+        "avg_events": 4
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "search",
+          "view",
+          "search"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 search \u2192 view \u2192 search",
+        "count": 752,
+        "support": 0.0752,
+        "conversion_rate": 0.0,
+        "avg_events": 6
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "category",
+          "view",
+          "category",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 category \u2192 view \u2192 category \u2192 view",
+        "count": 623,
+        "support": 0.0623,
+        "conversion_rate": 0.0,
+        "avg_events": 7
       },
       {
         "path": [
@@ -166,95 +255,112 @@
           "view"
         ],
         "path_string": "search \u2192 view",
-        "count": 1579,
-        "support": 0.1579,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "category",
-          "view"
-        ],
-        "path_string": "category \u2192 view",
-        "count": 1107,
-        "support": 0.1107,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "landing",
-          "view"
-        ],
-        "path_string": "landing \u2192 view",
-        "count": 285,
-        "support": 0.0285,
+        "count": 537,
+        "support": 0.0537,
         "conversion_rate": 0.0,
         "avg_events": 2
       },
       {
         "path": [
           "homepage",
+          "category",
+          "view",
+          "add_to_cart",
           "view",
           "add_to_cart"
         ],
-        "path_string": "homepage \u2192 view \u2192 add_to_cart",
-        "count": 243,
-        "support": 0.0243,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 view \u2192 add_to_cart",
+        "count": 526,
+        "support": 0.0526,
         "conversion_rate": 0.0,
-        "avg_events": 3
+        "avg_events": 6
       },
       {
         "path": [
           "homepage",
+          "category",
           "view",
           "add_to_cart",
           "checkout"
         ],
-        "path_string": "homepage \u2192 view \u2192 add_to_cart \u2192 checkout",
-        "count": 169,
-        "support": 0.0169,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 checkout",
+        "count": 523,
+        "support": 0.0523,
         "conversion_rate": 0.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "homepage",
-          "view",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "homepage \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 169,
-        "support": 0.0169,
-        "conversion_rate": 1.0,
         "avg_events": 5
       },
       {
         "path": [
           "search",
           "view",
-          "add_to_cart"
+          "search",
+          "view",
+          "search",
+          "view"
         ],
-        "path_string": "search \u2192 view \u2192 add_to_cart",
-        "count": 140,
-        "support": 0.014,
+        "path_string": "search \u2192 view \u2192 search \u2192 view \u2192 search \u2192 view",
+        "count": 422,
+        "support": 0.0422,
         "conversion_rate": 0.0,
-        "avg_events": 3
+        "avg_events": 6
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view \u2192 view \u2192 view \u2192 view",
+        "count": 410,
+        "support": 0.041,
+        "conversion_rate": 0.0,
+        "avg_events": 7
       },
       {
         "path": [
           "category",
           "view",
-          "add_to_cart"
+          "category",
+          "view"
         ],
-        "path_string": "category \u2192 view \u2192 add_to_cart",
-        "count": 104,
-        "support": 0.0104,
+        "path_string": "category \u2192 view \u2192 category \u2192 view",
+        "count": 395,
+        "support": 0.0395,
         "conversion_rate": 0.0,
-        "avg_events": 3
+        "avg_events": 4
+      },
+      {
+        "path": [
+          "search",
+          "view",
+          "add_to_cart",
+          "view"
+        ],
+        "path_string": "search \u2192 view \u2192 add_to_cart \u2192 view",
+        "count": 316,
+        "support": 0.0316,
+        "conversion_rate": 0.0,
+        "avg_events": 4
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "category",
+          "view",
+          "view",
+          "review"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 category \u2192 view \u2192 view \u2192 review",
+        "count": 276,
+        "support": 0.0276,
+        "conversion_rate": 0.0,
+        "avg_events": 7
       },
       {
         "path": [
@@ -264,334 +370,256 @@
           "checkout"
         ],
         "path_string": "search \u2192 view \u2192 add_to_cart \u2192 checkout",
-        "count": 90,
-        "support": 0.009,
+        "count": 240,
+        "support": 0.024,
         "conversion_rate": 0.0,
         "avg_events": 4
       },
       {
         "path": [
-          "category",
-          "view",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "category \u2192 view \u2192 add_to_cart \u2192 checkout",
-        "count": 81,
-        "support": 0.0081,
-        "conversion_rate": 0.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "search",
-          "view",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "search \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 77,
-        "support": 0.0077,
-        "conversion_rate": 1.0,
-        "avg_events": 5
-      },
-      {
-        "path": [
+          "homepage",
           "category",
           "view",
           "add_to_cart",
           "checkout",
           "purchase"
         ],
-        "path_string": "category \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 71,
-        "support": 0.0071,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 124,
+        "support": 0.0124,
         "conversion_rate": 1.0,
-        "avg_events": 5
+        "avg_events": 6
       },
       {
         "path": [
           "homepage",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "homepage \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 36,
-        "support": 0.0036,
-        "conversion_rate": 1.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "landing",
+          "category",
           "view",
-          "add_to_cart"
-        ],
-        "path_string": "landing \u2192 view \u2192 add_to_cart",
-        "count": 29,
-        "support": 0.0029,
-        "conversion_rate": 0.0,
-        "avg_events": 3
-      },
-      {
-        "path": [
-          "homepage",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "homepage \u2192 add_to_cart \u2192 checkout",
-        "count": 27,
-        "support": 0.0027,
-        "conversion_rate": 0.0,
-        "avg_events": 3
-      },
-      {
-        "path": [
-          "homepage",
-          "add_to_cart"
-        ],
-        "path_string": "homepage \u2192 add_to_cart",
-        "count": 22,
-        "support": 0.0022,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "search",
+          "view",
           "add_to_cart",
           "checkout",
           "purchase"
         ],
-        "path_string": "search \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 83,
+        "support": 0.0083,
+        "conversion_rate": 1.0,
+        "avg_events": 7
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 66,
+        "support": 0.0066,
+        "conversion_rate": 1.0,
+        "avg_events": 6
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "review",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 review \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 23,
+        "support": 0.0023,
+        "conversion_rate": 1.0,
+        "avg_events": 7
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "size_guide",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 size_guide \u2192 add_to_cart \u2192 checkout \u2192 purchase",
         "count": 21,
         "support": 0.0021,
         "conversion_rate": 1.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "landing",
-          "view",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "landing \u2192 view \u2192 add_to_cart \u2192 checkout",
-        "count": 21,
-        "support": 0.0021,
-        "conversion_rate": 0.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "landing",
-          "view",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "landing \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 16,
-        "support": 0.0016,
-        "conversion_rate": 1.0,
-        "avg_events": 5
+        "avg_events": 7
       },
       {
         "path": [
           "search",
-          "add_to_cart"
-        ],
-        "path_string": "search \u2192 add_to_cart",
-        "count": 14,
-        "support": 0.0014,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "search",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "search \u2192 add_to_cart \u2192 checkout",
-        "count": 12,
-        "support": 0.0012,
-        "conversion_rate": 0.0,
-        "avg_events": 3
-      },
-      {
-        "path": [
-          "landing",
+          "view",
+          "size_guide",
           "add_to_cart",
           "checkout",
           "purchase"
         ],
-        "path_string": "landing \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 12,
-        "support": 0.0012,
+        "path_string": "search \u2192 view \u2192 size_guide \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 11,
+        "support": 0.0011,
         "conversion_rate": 1.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "category",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "category \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 12,
-        "support": 0.0012,
-        "conversion_rate": 1.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "category",
-          "add_to_cart"
-        ],
-        "path_string": "category \u2192 add_to_cart",
-        "count": 10,
-        "support": 0.001,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "landing",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "landing \u2192 add_to_cart \u2192 checkout",
-        "count": 10,
-        "support": 0.001,
-        "conversion_rate": 0.0,
-        "avg_events": 3
+        "avg_events": 6
       }
     ],
     "converting": [
       {
         "path": [
           "homepage",
-          "view",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "homepage \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 169,
-        "support": 0.4082,
-        "conversion_rate": 1.0,
-        "avg_events": 5
-      },
-      {
-        "path": [
-          "search",
-          "view",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "search \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 77,
-        "support": 0.186,
-        "conversion_rate": 1.0,
-        "avg_events": 5
-      },
-      {
-        "path": [
           "category",
           "view",
           "add_to_cart",
           "checkout",
           "purchase"
         ],
-        "path_string": "category \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 71,
-        "support": 0.1715,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 124,
+        "support": 0.378,
         "conversion_rate": 1.0,
-        "avg_events": 5
+        "avg_events": 6
       },
       {
         "path": [
           "homepage",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "homepage \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 36,
-        "support": 0.087,
-        "conversion_rate": 1.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "search",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "search \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 21,
-        "support": 0.0507,
-        "conversion_rate": 1.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "landing",
+          "category",
+          "view",
           "view",
           "add_to_cart",
           "checkout",
           "purchase"
         ],
-        "path_string": "landing \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 16,
-        "support": 0.0386,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 83,
+        "support": 0.253,
         "conversion_rate": 1.0,
-        "avg_events": 5
+        "avg_events": 7
       },
       {
         "path": [
-          "landing",
+          "homepage",
+          "search",
+          "view",
           "add_to_cart",
           "checkout",
           "purchase"
         ],
-        "path_string": "landing \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 12,
-        "support": 0.029,
+        "path_string": "homepage \u2192 search \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 66,
+        "support": 0.2012,
         "conversion_rate": 1.0,
-        "avg_events": 4
+        "avg_events": 6
       },
       {
         "path": [
+          "homepage",
           "category",
+          "view",
+          "review",
           "add_to_cart",
           "checkout",
           "purchase"
         ],
-        "path_string": "category \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 12,
-        "support": 0.029,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 review \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 23,
+        "support": 0.0701,
         "conversion_rate": 1.0,
-        "avg_events": 4
+        "avg_events": 7
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "size_guide",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 size_guide \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 21,
+        "support": 0.064,
+        "conversion_rate": 1.0,
+        "avg_events": 7
+      },
+      {
+        "path": [
+          "search",
+          "view",
+          "size_guide",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "search \u2192 view \u2192 size_guide \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 11,
+        "support": 0.0335,
+        "conversion_rate": 1.0,
+        "avg_events": 6
       }
     ],
     "non_converting": [
       {
         "path": [
           "homepage",
+          "category",
           "view"
         ],
-        "path_string": "homepage \u2192 view",
-        "count": 2731,
-        "support": 0.2849,
+        "path_string": "homepage \u2192 category \u2192 view",
+        "count": 1622,
+        "support": 0.1677,
         "conversion_rate": 0.0,
-        "avg_events": 2
+        "avg_events": 3
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view",
+        "count": 1064,
+        "support": 0.11,
+        "conversion_rate": 0.0,
+        "avg_events": 4
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "search",
+          "view",
+          "search"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 search \u2192 view \u2192 search",
+        "count": 752,
+        "support": 0.0778,
+        "conversion_rate": 0.0,
+        "avg_events": 6
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "category",
+          "view",
+          "category",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 category \u2192 view \u2192 category \u2192 view",
+        "count": 623,
+        "support": 0.0644,
+        "conversion_rate": 0.0,
+        "avg_events": 7
       },
       {
         "path": [
@@ -599,55 +627,81 @@
           "view"
         ],
         "path_string": "search \u2192 view",
-        "count": 1579,
-        "support": 0.1647,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "category",
-          "view"
-        ],
-        "path_string": "category \u2192 view",
-        "count": 1107,
-        "support": 0.1155,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "landing",
-          "view"
-        ],
-        "path_string": "landing \u2192 view",
-        "count": 285,
-        "support": 0.0297,
+        "count": 537,
+        "support": 0.0555,
         "conversion_rate": 0.0,
         "avg_events": 2
       },
       {
         "path": [
           "homepage",
+          "category",
+          "view",
+          "add_to_cart",
           "view",
           "add_to_cart"
         ],
-        "path_string": "homepage \u2192 view \u2192 add_to_cart",
-        "count": 243,
-        "support": 0.0253,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 view \u2192 add_to_cart",
+        "count": 526,
+        "support": 0.0544,
         "conversion_rate": 0.0,
-        "avg_events": 3
+        "avg_events": 6
       },
       {
         "path": [
           "homepage",
+          "category",
           "view",
           "add_to_cart",
           "checkout"
         ],
-        "path_string": "homepage \u2192 view \u2192 add_to_cart \u2192 checkout",
-        "count": 169,
-        "support": 0.0176,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 checkout",
+        "count": 523,
+        "support": 0.0541,
+        "conversion_rate": 0.0,
+        "avg_events": 5
+      },
+      {
+        "path": [
+          "search",
+          "view",
+          "search",
+          "view",
+          "search",
+          "view"
+        ],
+        "path_string": "search \u2192 view \u2192 search \u2192 view \u2192 search \u2192 view",
+        "count": 422,
+        "support": 0.0436,
+        "conversion_rate": 0.0,
+        "avg_events": 6
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view \u2192 view \u2192 view \u2192 view",
+        "count": 410,
+        "support": 0.0424,
+        "conversion_rate": 0.0,
+        "avg_events": 7
+      },
+      {
+        "path": [
+          "category",
+          "view",
+          "category",
+          "view"
+        ],
+        "path_string": "category \u2192 view \u2192 category \u2192 view",
+        "count": 395,
+        "support": 0.0408,
         "conversion_rate": 0.0,
         "avg_events": 4
       },
@@ -655,25 +709,30 @@
         "path": [
           "search",
           "view",
-          "add_to_cart"
+          "add_to_cart",
+          "view"
         ],
-        "path_string": "search \u2192 view \u2192 add_to_cart",
-        "count": 140,
-        "support": 0.0146,
+        "path_string": "search \u2192 view \u2192 add_to_cart \u2192 view",
+        "count": 316,
+        "support": 0.0327,
         "conversion_rate": 0.0,
-        "avg_events": 3
+        "avg_events": 4
       },
       {
         "path": [
+          "homepage",
           "category",
           "view",
-          "add_to_cart"
+          "category",
+          "view",
+          "view",
+          "review"
         ],
-        "path_string": "category \u2192 view \u2192 add_to_cart",
-        "count": 104,
-        "support": 0.0108,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 category \u2192 view \u2192 view \u2192 review",
+        "count": 276,
+        "support": 0.0285,
         "conversion_rate": 0.0,
-        "avg_events": 3
+        "avg_events": 7
       },
       {
         "path": [
@@ -683,240 +742,163 @@
           "checkout"
         ],
         "path_string": "search \u2192 view \u2192 add_to_cart \u2192 checkout",
-        "count": 90,
-        "support": 0.0094,
+        "count": 240,
+        "support": 0.0248,
         "conversion_rate": 0.0,
         "avg_events": 4
-      },
-      {
-        "path": [
-          "category",
-          "view",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "category \u2192 view \u2192 add_to_cart \u2192 checkout",
-        "count": 81,
-        "support": 0.0084,
-        "conversion_rate": 0.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "landing",
-          "view",
-          "add_to_cart"
-        ],
-        "path_string": "landing \u2192 view \u2192 add_to_cart",
-        "count": 29,
-        "support": 0.003,
-        "conversion_rate": 0.0,
-        "avg_events": 3
-      },
-      {
-        "path": [
-          "homepage",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "homepage \u2192 add_to_cart \u2192 checkout",
-        "count": 27,
-        "support": 0.0028,
-        "conversion_rate": 0.0,
-        "avg_events": 3
-      },
-      {
-        "path": [
-          "homepage",
-          "add_to_cart"
-        ],
-        "path_string": "homepage \u2192 add_to_cart",
-        "count": 22,
-        "support": 0.0023,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "landing",
-          "view",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "landing \u2192 view \u2192 add_to_cart \u2192 checkout",
-        "count": 21,
-        "support": 0.0022,
-        "conversion_rate": 0.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "search",
-          "add_to_cart"
-        ],
-        "path_string": "search \u2192 add_to_cart",
-        "count": 14,
-        "support": 0.0015,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "search",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "search \u2192 add_to_cart \u2192 checkout",
-        "count": 12,
-        "support": 0.0013,
-        "conversion_rate": 0.0,
-        "avg_events": 3
-      },
-      {
-        "path": [
-          "category",
-          "add_to_cart"
-        ],
-        "path_string": "category \u2192 add_to_cart",
-        "count": 10,
-        "support": 0.001,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "landing",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "landing \u2192 add_to_cart \u2192 checkout",
-        "count": 10,
-        "support": 0.001,
-        "conversion_rate": 0.0,
-        "avg_events": 3
       }
     ],
     "unique_to_converting": [
       {
         "path": [
           "homepage",
-          "view",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "homepage \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 169,
-        "support": 0.4082,
-        "conversion_rate": 1.0,
-        "avg_events": 5
-      },
-      {
-        "path": [
-          "search",
-          "view",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "search \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 77,
-        "support": 0.186,
-        "conversion_rate": 1.0,
-        "avg_events": 5
-      },
-      {
-        "path": [
           "category",
           "view",
           "add_to_cart",
           "checkout",
           "purchase"
         ],
-        "path_string": "category \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 71,
-        "support": 0.1715,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 124,
+        "support": 0.378,
         "conversion_rate": 1.0,
-        "avg_events": 5
+        "avg_events": 6
       },
       {
         "path": [
           "homepage",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "homepage \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 36,
-        "support": 0.087,
-        "conversion_rate": 1.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "search",
-          "add_to_cart",
-          "checkout",
-          "purchase"
-        ],
-        "path_string": "search \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 21,
-        "support": 0.0507,
-        "conversion_rate": 1.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "landing",
+          "category",
+          "view",
           "view",
           "add_to_cart",
           "checkout",
           "purchase"
         ],
-        "path_string": "landing \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 16,
-        "support": 0.0386,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 83,
+        "support": 0.253,
         "conversion_rate": 1.0,
-        "avg_events": 5
+        "avg_events": 7
       },
       {
         "path": [
-          "landing",
+          "homepage",
+          "search",
+          "view",
           "add_to_cart",
           "checkout",
           "purchase"
         ],
-        "path_string": "landing \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 12,
-        "support": 0.029,
+        "path_string": "homepage \u2192 search \u2192 view \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 66,
+        "support": 0.2012,
         "conversion_rate": 1.0,
-        "avg_events": 4
+        "avg_events": 6
       },
       {
         "path": [
+          "homepage",
           "category",
+          "view",
+          "review",
           "add_to_cart",
           "checkout",
           "purchase"
         ],
-        "path_string": "category \u2192 add_to_cart \u2192 checkout \u2192 purchase",
-        "count": 12,
-        "support": 0.029,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 review \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 23,
+        "support": 0.0701,
         "conversion_rate": 1.0,
-        "avg_events": 4
+        "avg_events": 7
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "size_guide",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 size_guide \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 21,
+        "support": 0.064,
+        "conversion_rate": 1.0,
+        "avg_events": 7
+      },
+      {
+        "path": [
+          "search",
+          "view",
+          "size_guide",
+          "add_to_cart",
+          "checkout",
+          "purchase"
+        ],
+        "path_string": "search \u2192 view \u2192 size_guide \u2192 add_to_cart \u2192 checkout \u2192 purchase",
+        "count": 11,
+        "support": 0.0335,
+        "conversion_rate": 1.0,
+        "avg_events": 6
       }
     ],
     "unique_to_non_converting": [
       {
         "path": [
           "homepage",
+          "category",
           "view"
         ],
-        "path_string": "homepage \u2192 view",
-        "count": 2731,
-        "support": 0.2849,
+        "path_string": "homepage \u2192 category \u2192 view",
+        "count": 1622,
+        "support": 0.1677,
         "conversion_rate": 0.0,
-        "avg_events": 2
+        "avg_events": 3
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view",
+        "count": 1064,
+        "support": 0.11,
+        "conversion_rate": 0.0,
+        "avg_events": 4
+      },
+      {
+        "path": [
+          "homepage",
+          "search",
+          "view",
+          "search",
+          "view",
+          "search"
+        ],
+        "path_string": "homepage \u2192 search \u2192 view \u2192 search \u2192 view \u2192 search",
+        "count": 752,
+        "support": 0.0778,
+        "conversion_rate": 0.0,
+        "avg_events": 6
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "category",
+          "view",
+          "category",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 category \u2192 view \u2192 category \u2192 view",
+        "count": 623,
+        "support": 0.0644,
+        "conversion_rate": 0.0,
+        "avg_events": 7
       },
       {
         "path": [
@@ -924,55 +906,81 @@
           "view"
         ],
         "path_string": "search \u2192 view",
-        "count": 1579,
-        "support": 0.1647,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "category",
-          "view"
-        ],
-        "path_string": "category \u2192 view",
-        "count": 1107,
-        "support": 0.1155,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "landing",
-          "view"
-        ],
-        "path_string": "landing \u2192 view",
-        "count": 285,
-        "support": 0.0297,
+        "count": 537,
+        "support": 0.0555,
         "conversion_rate": 0.0,
         "avg_events": 2
       },
       {
         "path": [
           "homepage",
+          "category",
+          "view",
+          "add_to_cart",
           "view",
           "add_to_cart"
         ],
-        "path_string": "homepage \u2192 view \u2192 add_to_cart",
-        "count": 243,
-        "support": 0.0253,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 view \u2192 add_to_cart",
+        "count": 526,
+        "support": 0.0544,
         "conversion_rate": 0.0,
-        "avg_events": 3
+        "avg_events": 6
       },
       {
         "path": [
           "homepage",
+          "category",
           "view",
           "add_to_cart",
           "checkout"
         ],
-        "path_string": "homepage \u2192 view \u2192 add_to_cart \u2192 checkout",
-        "count": 169,
-        "support": 0.0176,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 add_to_cart \u2192 checkout",
+        "count": 523,
+        "support": 0.0541,
+        "conversion_rate": 0.0,
+        "avg_events": 5
+      },
+      {
+        "path": [
+          "search",
+          "view",
+          "search",
+          "view",
+          "search",
+          "view"
+        ],
+        "path_string": "search \u2192 view \u2192 search \u2192 view \u2192 search \u2192 view",
+        "count": 422,
+        "support": 0.0436,
+        "conversion_rate": 0.0,
+        "avg_events": 6
+      },
+      {
+        "path": [
+          "homepage",
+          "category",
+          "view",
+          "view",
+          "view",
+          "view",
+          "view"
+        ],
+        "path_string": "homepage \u2192 category \u2192 view \u2192 view \u2192 view \u2192 view \u2192 view",
+        "count": 410,
+        "support": 0.0424,
+        "conversion_rate": 0.0,
+        "avg_events": 7
+      },
+      {
+        "path": [
+          "category",
+          "view",
+          "category",
+          "view"
+        ],
+        "path_string": "category \u2192 view \u2192 category \u2192 view",
+        "count": 395,
+        "support": 0.0408,
         "conversion_rate": 0.0,
         "avg_events": 4
       },
@@ -980,25 +988,30 @@
         "path": [
           "search",
           "view",
-          "add_to_cart"
+          "add_to_cart",
+          "view"
         ],
-        "path_string": "search \u2192 view \u2192 add_to_cart",
-        "count": 140,
-        "support": 0.0146,
+        "path_string": "search \u2192 view \u2192 add_to_cart \u2192 view",
+        "count": 316,
+        "support": 0.0327,
         "conversion_rate": 0.0,
-        "avg_events": 3
+        "avg_events": 4
       },
       {
         "path": [
+          "homepage",
           "category",
           "view",
-          "add_to_cart"
+          "category",
+          "view",
+          "view",
+          "review"
         ],
-        "path_string": "category \u2192 view \u2192 add_to_cart",
-        "count": 104,
-        "support": 0.0108,
+        "path_string": "homepage \u2192 category \u2192 view \u2192 category \u2192 view \u2192 view \u2192 review",
+        "count": 276,
+        "support": 0.0285,
         "conversion_rate": 0.0,
-        "avg_events": 3
+        "avg_events": 7
       },
       {
         "path": [
@@ -1008,117 +1021,10 @@
           "checkout"
         ],
         "path_string": "search \u2192 view \u2192 add_to_cart \u2192 checkout",
-        "count": 90,
-        "support": 0.0094,
+        "count": 240,
+        "support": 0.0248,
         "conversion_rate": 0.0,
         "avg_events": 4
-      },
-      {
-        "path": [
-          "category",
-          "view",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "category \u2192 view \u2192 add_to_cart \u2192 checkout",
-        "count": 81,
-        "support": 0.0084,
-        "conversion_rate": 0.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "landing",
-          "view",
-          "add_to_cart"
-        ],
-        "path_string": "landing \u2192 view \u2192 add_to_cart",
-        "count": 29,
-        "support": 0.003,
-        "conversion_rate": 0.0,
-        "avg_events": 3
-      },
-      {
-        "path": [
-          "homepage",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "homepage \u2192 add_to_cart \u2192 checkout",
-        "count": 27,
-        "support": 0.0028,
-        "conversion_rate": 0.0,
-        "avg_events": 3
-      },
-      {
-        "path": [
-          "homepage",
-          "add_to_cart"
-        ],
-        "path_string": "homepage \u2192 add_to_cart",
-        "count": 22,
-        "support": 0.0023,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "landing",
-          "view",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "landing \u2192 view \u2192 add_to_cart \u2192 checkout",
-        "count": 21,
-        "support": 0.0022,
-        "conversion_rate": 0.0,
-        "avg_events": 4
-      },
-      {
-        "path": [
-          "search",
-          "add_to_cart"
-        ],
-        "path_string": "search \u2192 add_to_cart",
-        "count": 14,
-        "support": 0.0015,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "search",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "search \u2192 add_to_cart \u2192 checkout",
-        "count": 12,
-        "support": 0.0013,
-        "conversion_rate": 0.0,
-        "avg_events": 3
-      },
-      {
-        "path": [
-          "category",
-          "add_to_cart"
-        ],
-        "path_string": "category \u2192 add_to_cart",
-        "count": 10,
-        "support": 0.001,
-        "conversion_rate": 0.0,
-        "avg_events": 2
-      },
-      {
-        "path": [
-          "landing",
-          "add_to_cart",
-          "checkout"
-        ],
-        "path_string": "landing \u2192 add_to_cart \u2192 checkout",
-        "count": 10,
-        "support": 0.001,
-        "conversion_rate": 0.0,
-        "avg_events": 3
       }
     ]
   },
@@ -1126,145 +1032,211 @@
     "scores": [
       {
         "step": "landing",
-        "drop_off": 0.6096,
+        "drop_off": 1.0,
         "zone": "navigation",
-        "zone_baseline": 0.3487,
-        "z_score": 1.71,
-        "friction_level": "high",
-        "sessions_at_step": 976,
-        "sessions_exiting": 595
+        "zone_baseline": 0.3296,
+        "z_score": 1.48,
+        "friction_level": "medium",
+        "sessions_at_step": 699,
+        "sessions_exiting": 699
+      },
+      {
+        "step": "review",
+        "drop_off": 0.9231,
+        "zone": "engagement",
+        "zone_baseline": 0.4265,
+        "z_score": 1.07,
+        "friction_level": "normal",
+        "sessions_at_step": 299,
+        "sessions_exiting": 276
       },
       {
         "step": "checkout",
-        "drop_off": 0.503,
+        "drop_off": 0.6994,
         "zone": "commitment",
-        "zone_baseline": 0.4546,
-        "z_score": 1.0,
-        "friction_level": "medium",
-        "sessions_at_step": 833,
-        "sessions_exiting": 419
+        "zone_baseline": 0.4566,
+        "z_score": 0.71,
+        "friction_level": "normal",
+        "sessions_at_step": 1091,
+        "sessions_exiting": 763
       },
       {
         "step": "view",
-        "drop_off": 0.8249,
+        "drop_off": 0.3564,
         "zone": "engagement",
-        "zone_baseline": 0.8249,
-        "z_score": 0.0,
+        "zone_baseline": 0.4265,
+        "z_score": -0.15,
         "friction_level": "normal",
-        "sessions_at_step": 6912,
-        "sessions_exiting": 5702
-      },
-      {
-        "step": "category",
-        "drop_off": 0.2991,
-        "zone": "navigation",
-        "zone_baseline": 0.3487,
-        "z_score": -0.33,
-        "friction_level": "normal",
-        "sessions_at_step": 1989,
-        "sessions_exiting": 595
+        "sessions_at_step": 15636,
+        "sessions_exiting": 5573
       },
       {
         "step": "search",
-        "drop_off": 0.2455,
+        "drop_off": 0.1948,
         "zone": "navigation",
-        "zone_baseline": 0.3487,
-        "z_score": -0.68,
+        "zone_baseline": 0.3296,
+        "z_score": -0.3,
         "friction_level": "normal",
-        "sessions_at_step": 2562,
-        "sessions_exiting": 629
+        "sessions_at_step": 4919,
+        "sessions_exiting": 958
       },
       {
         "step": "homepage",
-        "drop_off": 0.2406,
+        "drop_off": 0.0798,
         "zone": "navigation",
-        "zone_baseline": 0.3487,
-        "z_score": -0.71,
+        "zone_baseline": 0.3296,
+        "z_score": -0.55,
         "friction_level": "normal",
-        "sessions_at_step": 4473,
-        "sessions_exiting": 1076
+        "sessions_at_step": 6643,
+        "sessions_exiting": 530
+      },
+      {
+        "step": "category",
+        "drop_off": 0.0437,
+        "zone": "navigation",
+        "zone_baseline": 0.3296,
+        "z_score": -0.63,
+        "friction_level": "normal",
+        "sessions_at_step": 7933,
+        "sessions_exiting": 347
       },
       {
         "step": "add_to_cart",
-        "drop_off": 0.4063,
+        "drop_off": 0.2139,
         "zone": "commitment",
-        "zone_baseline": 0.4546,
-        "z_score": -1.0,
+        "zone_baseline": 0.4566,
+        "z_score": -0.71,
         "friction_level": "normal",
-        "sessions_at_step": 1403,
-        "sessions_exiting": 570
+        "sessions_at_step": 2459,
+        "sessions_exiting": 526
+      },
+      {
+        "step": "size_guide",
+        "drop_off": 0.0,
+        "zone": "engagement",
+        "zone_baseline": 0.4265,
+        "z_score": -0.92,
+        "friction_level": "normal",
+        "sessions_at_step": 32,
+        "sessions_exiting": 0
       }
     ],
     "patterns_detected": [
       {
-        "type": "browse_no_cart",
-        "description": "User browses products but never adds to cart \u2014 engaged but no purchase intent",
-        "sessions_affected": 5702,
-        "pct_of_total": 0.5702,
+        "type": "deep_browse_no_action",
+        "description": "User views 5+ pages but never adds to cart \u2014 engaged but no intent signal",
+        "sessions_affected": 2483,
+        "pct_of_total": 24.8,
         "conversion_rate": 0.0
       },
       {
         "type": "single_page_exit",
         "description": "User views only one page and leaves \u2014 content or relevance mismatch",
-        "sessions_affected": 2895,
-        "pct_of_total": 0.2895,
+        "sessions_affected": 1966,
+        "pct_of_total": 19.7,
         "conversion_rate": 0.0
       },
       {
-        "type": "landing_bounce",
-        "description": "User arrives at landing page and leaves immediately \u2014 poor relevance or load time",
-        "sessions_affected": 595,
-        "pct_of_total": 0.0595,
+        "type": "search_frustration_loop",
+        "description": "User searches 3+ times in a session \u2014 likely can't find what they want",
+        "sessions_affected": 1174,
+        "pct_of_total": 11.7,
         "conversion_rate": 0.0
       },
       {
-        "type": "cart_abandonment",
-        "description": "User adds to cart but never reaches checkout \u2014 hesitation or distraction",
-        "sessions_affected": 570,
-        "pct_of_total": 0.057,
+        "type": "cart_hesitation",
+        "description": "User adds to cart but returns to viewing \u2014 price or size uncertainty",
+        "sessions_affected": 842,
+        "pct_of_total": 8.4,
         "conversion_rate": 0.0
       },
       {
         "type": "checkout_abandonment",
         "description": "User reaches checkout but does not purchase \u2014 payment or shipping friction",
-        "sessions_affected": 419,
-        "pct_of_total": 0.0419,
+        "sessions_affected": 763,
+        "pct_of_total": 7.6,
+        "conversion_rate": 0.0
+      },
+      {
+        "type": "bounce_back_browse",
+        "description": "User goes category \u2192 product \u2192 category \u2192 product \u2014 browsing without conviction",
+        "sessions_affected": 623,
+        "pct_of_total": 6.2,
         "conversion_rate": 0.0
       }
     ]
   },
   "transition_matrix": {
     "all": {
-      "homepage": {
-        "view": 0.975,
-        "add_to_cart": 0.025
-      },
-      "search": {
-        "view": 0.9757,
-        "add_to_cart": 0.0243
-      },
-      "category": {
-        "view": 0.9778,
-        "add_to_cart": 0.0222
+      "[start]": {
+        "landing": 0.0699,
+        "category": 0.0742,
+        "homepage": 0.6643,
+        "search": 0.1732,
+        "view": 0.0184
       },
       "landing": {
-        "view": 0.9213,
-        "add_to_cart": 0.0787
+        "[exit]": 1.0
+      },
+      "category": {
+        "[exit]": 0.0437,
+        "view": 0.9563
+      },
+      "homepage": {
+        "category": 0.7939,
+        "[exit]": 0.0798,
+        "search": 0.1263
       },
       "view": {
-        "add_to_cart": 1.0
+        "category": 0.1226,
+        "[exit]": 0.3564,
+        "add_to_cart": 0.1537,
+        "view": 0.1959,
+        "search": 0.1502,
+        "review": 0.0191,
+        "size_guide": 0.002
       },
       "add_to_cart": {
-        "checkout": 1.0
+        "view": 0.3424,
+        "[exit]": 0.2139,
+        "checkout": 0.4437
       },
       "checkout": {
-        "purchase": 1.0
+        "purchase": 0.3006,
+        "[exit]": 0.6994
+      },
+      "purchase": {
+        "[exit]": 1.0
+      },
+      "search": {
+        "[exit]": 0.1948,
+        "view": 0.8052
+      },
+      "review": {
+        "[exit]": 0.9231,
+        "add_to_cart": 0.0769
+      },
+      "size_guide": {
+        "add_to_cart": 1.0
       }
     },
     "converting": {
-      "search": {
-        "add_to_cart": 0.2143,
-        "view": 0.7857
+      "[start]": {
+        "homepage": 0.9665,
+        "search": 0.0335
+      },
+      "homepage": {
+        "category": 0.7256,
+        "search": 0.2744
+      },
+      "category": {
+        "view": 1.0
+      },
+      "view": {
+        "view": 0.2019,
+        "add_to_cart": 0.6642,
+        "review": 0.056,
+        "size_guide": 0.0779
       },
       "add_to_cart": {
         "checkout": 1.0
@@ -1272,45 +1244,240 @@
       "checkout": {
         "purchase": 1.0
       },
-      "category": {
-        "view": 0.8554,
-        "add_to_cart": 0.1446
+      "purchase": {
+        "[exit]": 1.0
       },
-      "view": {
+      "search": {
+        "view": 1.0
+      },
+      "review": {
         "add_to_cart": 1.0
       },
-      "homepage": {
-        "view": 0.8244,
-        "add_to_cart": 0.1756
-      },
-      "landing": {
-        "view": 0.5714,
-        "add_to_cart": 0.4286
+      "size_guide": {
+        "add_to_cart": 1.0
       }
     },
     "non_converting": {
-      "homepage": {
-        "view": 0.9846,
-        "add_to_cart": 0.0154
-      },
-      "search": {
-        "view": 0.9858,
-        "add_to_cart": 0.0142
-      },
-      "category": {
-        "view": 0.9855,
-        "add_to_cart": 0.0145
+      "[start]": {
+        "landing": 0.0723,
+        "category": 0.0767,
+        "homepage": 0.6541,
+        "search": 0.1779,
+        "view": 0.019
       },
       "landing": {
-        "view": 0.949,
-        "add_to_cart": 0.051
+        "[exit]": 1.0
+      },
+      "category": {
+        "[exit]": 0.045,
+        "view": 0.955
+      },
+      "homepage": {
+        "category": 0.7973,
+        "[exit]": 0.0838,
+        "search": 0.1189
       },
       "view": {
-        "add_to_cart": 1.0
+        "category": 0.1259,
+        "[exit]": 0.366,
+        "add_to_cart": 0.14,
+        "view": 0.1957,
+        "search": 0.1542,
+        "review": 0.0181
       },
       "add_to_cart": {
-        "checkout": 1.0
+        "view": 0.3951,
+        "[exit]": 0.2468,
+        "checkout": 0.358
+      },
+      "search": {
+        "[exit]": 0.1987,
+        "view": 0.8013
+      },
+      "checkout": {
+        "[exit]": 1.0
+      },
+      "review": {
+        "[exit]": 1.0
       }
     }
+  },
+  "markov_analytics": {
+    "path_probabilities": {
+      "purchase": 1.0,
+      "review": 0.0113,
+      "size_guide": 0.1474,
+      "landing": 0.0,
+      "category": 0.0391,
+      "add_to_cart": 0.1474,
+      "checkout": 0.3006,
+      "search": 0.033,
+      "homepage": 0.0352,
+      "view": 0.0409
+    },
+    "divergence_points": [
+      {
+        "from_step": "purchase",
+        "to_step": "[exit]",
+        "converting_prob": 1.0,
+        "non_converting_prob": 0,
+        "delta": 1.0,
+        "direction": "converters_more"
+      },
+      {
+        "from_step": "review",
+        "to_step": "[exit]",
+        "converting_prob": 0,
+        "non_converting_prob": 1.0,
+        "delta": 1.0,
+        "direction": "non_converters_more"
+      },
+      {
+        "from_step": "review",
+        "to_step": "add_to_cart",
+        "converting_prob": 1.0,
+        "non_converting_prob": 0,
+        "delta": 1.0,
+        "direction": "converters_more"
+      },
+      {
+        "from_step": "landing",
+        "to_step": "[exit]",
+        "converting_prob": 0,
+        "non_converting_prob": 1.0,
+        "delta": 1.0,
+        "direction": "non_converters_more"
+      },
+      {
+        "from_step": "checkout",
+        "to_step": "purchase",
+        "converting_prob": 1.0,
+        "non_converting_prob": 0,
+        "delta": 1.0,
+        "direction": "converters_more"
+      },
+      {
+        "from_step": "checkout",
+        "to_step": "[exit]",
+        "converting_prob": 0,
+        "non_converting_prob": 1.0,
+        "delta": 1.0,
+        "direction": "non_converters_more"
+      },
+      {
+        "from_step": "size_guide",
+        "to_step": "add_to_cart",
+        "converting_prob": 1.0,
+        "non_converting_prob": 0,
+        "delta": 1.0,
+        "direction": "converters_more"
+      },
+      {
+        "from_step": "add_to_cart",
+        "to_step": "checkout",
+        "converting_prob": 1.0,
+        "non_converting_prob": 0.358,
+        "delta": 0.642,
+        "direction": "converters_more"
+      },
+      {
+        "from_step": "view",
+        "to_step": "add_to_cart",
+        "converting_prob": 0.6642,
+        "non_converting_prob": 0.14,
+        "delta": 0.5242,
+        "direction": "converters_more"
+      },
+      {
+        "from_step": "add_to_cart",
+        "to_step": "view",
+        "converting_prob": 0,
+        "non_converting_prob": 0.3951,
+        "delta": 0.3951,
+        "direction": "non_converters_more"
+      },
+      {
+        "from_step": "view",
+        "to_step": "[exit]",
+        "converting_prob": 0,
+        "non_converting_prob": 0.366,
+        "delta": 0.366,
+        "direction": "non_converters_more"
+      },
+      {
+        "from_step": "add_to_cart",
+        "to_step": "[exit]",
+        "converting_prob": 0,
+        "non_converting_prob": 0.2468,
+        "delta": 0.2468,
+        "direction": "non_converters_more"
+      },
+      {
+        "from_step": "search",
+        "to_step": "[exit]",
+        "converting_prob": 0,
+        "non_converting_prob": 0.1987,
+        "delta": 0.1987,
+        "direction": "non_converters_more"
+      },
+      {
+        "from_step": "search",
+        "to_step": "view",
+        "converting_prob": 1.0,
+        "non_converting_prob": 0.8013,
+        "delta": 0.1987,
+        "direction": "converters_more"
+      },
+      {
+        "from_step": "homepage",
+        "to_step": "search",
+        "converting_prob": 0.2744,
+        "non_converting_prob": 0.1189,
+        "delta": 0.1555,
+        "direction": "converters_more"
+      }
+    ],
+    "expected_steps": [
+      {
+        "step": "purchase",
+        "expected_steps_to_purchase": 0
+      },
+      {
+        "step": "landing",
+        "expected_steps_to_purchase": 1.0
+      },
+      {
+        "step": "checkout",
+        "expected_steps_to_purchase": 1.0
+      },
+      {
+        "step": "review",
+        "expected_steps_to_purchase": 1.2
+      },
+      {
+        "step": "add_to_cart",
+        "expected_steps_to_purchase": 2.5
+      },
+      {
+        "step": "view",
+        "expected_steps_to_purchase": 3.0
+      },
+      {
+        "step": "search",
+        "expected_steps_to_purchase": 3.4
+      },
+      {
+        "step": "size_guide",
+        "expected_steps_to_purchase": 3.5
+      },
+      {
+        "step": "category",
+        "expected_steps_to_purchase": 3.8
+      },
+      {
+        "step": "homepage",
+        "expected_steps_to_purchase": 4.5
+      }
+    ]
   }
 }

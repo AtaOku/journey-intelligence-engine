@@ -16,14 +16,17 @@ export function SummaryStats({ metadata, friction }: Props) {
 
   // Business impact estimation
   // If top friction point's drop-off were reduced to zone baseline:
-  // rescued sessions × downstream CR × AOV × 12 months
-  const downstreamCR = metadata.conversion_rate; // simplified
-  const aov = metadata.avg_session_value > 0 ? metadata.avg_session_value / metadata.avg_events_per_session : 65; // rough AOV estimate
+  // rescued sessions × downstream CR × AOV
+  const downstreamCR = metadata.conversion_rate;
+  // AOV = avg value of converting sessions (not value/events which gives price-per-event)
+  const aov = metadata.converting_sessions > 0 && metadata.avg_session_value > 0
+    ? metadata.avg_session_value  // already per-session from metadata
+    : 65; // fallback when no value data
   const rescuedSessions = topFriction
-    ? Math.round(topFriction.sessions_at_step * (topFriction.drop_off - topFriction.zone_baseline))
+    ? Math.round(topFriction.sessions_at_step * Math.max(topFriction.drop_off - topFriction.zone_baseline, 0))
     : 0;
-  const monthlyImpact = Math.round(rescuedSessions * downstreamCR * aov);
-  const annualImpact = monthlyImpact * 12;
+  // Annualized: assume showcase data represents ~1 month of traffic
+  const annualImpact = Math.round(rescuedSessions * downstreamCR * aov * 12);
 
   const percentWorse = topFriction && topFriction.zone_baseline > 0
     ? Math.round(((topFriction.drop_off / topFriction.zone_baseline) - 1) * 100)

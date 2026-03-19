@@ -61,18 +61,27 @@ export function computeAnomalyScores(sessions: ProcessedSession[]): FrictionScor
     zoneRates[zone].push({ step, rate });
   }
 
-  // Compute zone-level stats
+  // Compute zone-level stats (sample variance with Bessel's correction)
   const zoneStats: Record<string, { mean: number; std: number }> = {};
+
+  // First pass: compute all rates for a global pooled std floor
+  const allRates = Object.values(zoneRates).flat().map((r) => r.rate);
+  const globalMean = allRates.reduce((s, v) => s + v, 0) / allRates.length;
+  const globalStd = allRates.length > 1
+    ? Math.sqrt(allRates.reduce((s, v) => s + (v - globalMean) ** 2, 0) / (allRates.length - 1))
+    : 0.1;
+  const minStd = globalStd * 0.25; // data-derived floor, not arbitrary
+
   for (const [zone, rates] of Object.entries(zoneRates)) {
     const values = rates.map((r) => r.rate);
     const mean = values.reduce((s, v) => s + v, 0) / values.length;
     const variance =
       values.length > 1
-        ? values.reduce((s, v) => s + (v - mean) ** 2, 0) / values.length
-        : 0.01; // minimum variance
+        ? values.reduce((s, v) => s + (v - mean) ** 2, 0) / (values.length - 1) // Bessel's correction
+        : 0;
     zoneStats[zone] = {
       mean,
-      std: Math.max(Math.sqrt(variance), 0.01),
+      std: Math.max(Math.sqrt(variance), minStd),
     };
   }
 
@@ -86,6 +95,11 @@ export function computeAnomalyScores(sessions: ProcessedSession[]): FrictionScor
     let frictionLevel: FrictionLevel = 'normal';
     if (zScore > 2.0) frictionLevel = 'high';
     else if (zScore > 1.5) frictionLevel = 'medium';
+    // Absolute-ratio fallback: small-n zones produce wide std that suppresses z-scores.
+    // If drop-off is 2.5x+ the zone baseline, flag at least medium.
+    if (frictionLevel === 'normal' && stats.mean > 0 && rate / stats.mean >= 2.5) {
+      frictionLevel = 'medium';
+    }
 
     scores.push({
       step,
@@ -107,6 +121,15 @@ export function computeAnomalyScores(sessions: ProcessedSession[]): FrictionScor
 
 /**
  * Enrich Sankey links with anomaly data from friction scores.
+ * 
+ * Key distinction: a high-friction step paints its EXIT links (backward
+ * or terminal transitions) with friction color, not ALL outgoing links.
+ * A link from landing → view is healthy progression even if landing
+ * has 100% exit rate for sessions that don't reach view.
+ * 
+ * Heuristic: if the target step is at a lower or equal funnel stage
+ * than the source, or the target is "[exit]", paint with friction.
+ * Forward-progression links keep the default zone gradient.
  */
 export function enrichSankeyWithFriction(
   sankey: SankeyData,
@@ -117,19 +140,33 @@ export function enrichSankeyWithFriction(
     scoreLookup.set(score.step, score);
   }
 
+  const STAGE_ORDER: Record<string, number> = {
+    homepage: 0, landing: 0, search: 1, category: 1,
+    view: 2, pdp: 2, review: 2, size_guide: 2, wishlist: 2, compare: 2,
+    add_to_cart: 3, cart: 3, cart_edit: 3,
+    checkout: 4, payment: 4, purchase: 5,
+  };
+
   const enrichedLinks: SankeyLink[] = sankey.links.map((link) => {
     const sourceNode = sankey.nodes[link.source];
-    if (!sourceNode) return link;
+    const targetNode = sankey.nodes[link.target];
+    if (!sourceNode || !targetNode) return link;
 
     const score = scoreLookup.get(sourceNode.name);
     if (!score) return link;
+
+    const srcStage = STAGE_ORDER[sourceNode.name] ?? 2;
+    const tgtStage = STAGE_ORDER[targetNode.name] ?? 2;
+    const isForwardProgression = tgtStage > srcStage;
 
     return {
       ...link,
       drop_off_rate: score.drop_off,
       anomaly_score: score.z_score,
       zone: score.zone,
-      friction_level: score.friction_level,
+      // Forward-progression links are "normal" even from high-friction steps.
+      // Only backward/lateral/exit links carry the friction signal.
+      friction_level: isForwardProgression ? 'normal' : score.friction_level,
     };
   });
 

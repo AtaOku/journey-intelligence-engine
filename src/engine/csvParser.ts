@@ -68,14 +68,24 @@ function parseCSVLine(line: string): string[] {
 
 // ---- Format Detection ----
 
-type CSVFormat = 'standard' | 'rees46' | 'unknown';
+type CSVFormat = 'standard' | 'rees46' | 'ga4' | 'shopify' | 'unknown';
 
 function detectFormat(headers: string[]): CSVFormat {
   const headerSet = new Set(headers.map((h) => h.toLowerCase()));
 
+  // GA4 BigQuery export: event_name + ga_session_id (or session_id + event_name)
+  if (headerSet.has('event_name') && (headerSet.has('ga_session_id') || headerSet.has('session_id'))) {
+    return 'ga4';
+  }
+  // Shopify: order_id or checkout_token with event columns
+  if ((headerSet.has('checkout_token') || headerSet.has('order_name')) && headerSet.has('landing_site')) {
+    return 'shopify';
+  }
+  // REES46
   if (headerSet.has('user_session') && headerSet.has('event_type')) {
     return 'rees46';
   }
+  // Standard
   if (headerSet.has('session_id') && headerSet.has('event_type')) {
     return 'standard';
   }
@@ -101,6 +111,22 @@ const COLUMN_MAPS: Record<CSVFormat, Record<string, string>> = {
     product_id: 'product_id',
     price: 'price',
   },
+  ga4: {
+    session_id: 'ga_session_id',
+    timestamp: 'event_timestamp',
+    event_type: 'event_name',
+    category: 'page_location',
+    product_id: 'item_id',
+    price: 'value',
+  },
+  shopify: {
+    session_id: 'checkout_token',
+    timestamp: 'created_at',
+    event_type: 'event_type',
+    category: 'product_type',
+    product_id: 'product_id',
+    price: 'total_price',
+  },
   unknown: {},
 };
 
@@ -110,6 +136,23 @@ const REES46_EVENT_MAP: Record<string, string> = {
   cart: 'add_to_cart',
   purchase: 'purchase',
   remove_from_cart: 'cart_edit',
+};
+
+// GA4 event name → journey step mapping
+const GA4_EVENT_MAP: Record<string, string> = {
+  page_view: 'view',
+  session_start: 'homepage',
+  view_item: 'view',
+  view_item_list: 'category',
+  select_item: 'view',
+  view_search_results: 'search',
+  add_to_cart: 'add_to_cart',
+  remove_from_cart: 'cart_edit',
+  view_cart: 'cart',
+  begin_checkout: 'checkout',
+  add_payment_info: 'payment',
+  add_shipping_info: 'checkout',
+  purchase: 'purchase',
 };
 
 // ---- Main Processing ----
@@ -132,7 +175,7 @@ export function processUploadedCSV(csvText: string): {
 
   if (format === 'unknown') {
     warnings.push(
-      `Could not detect CSV format. Expected columns: session_id + event_type (standard) or user_session + event_type (REES46). Found: ${headers.join(', ')}`
+      `Could not detect CSV format. Supported: standard (session_id + event_type), REES46 (user_session + event_type), GA4 BigQuery (ga_session_id + event_name), Shopify (checkout_token + landing_site). Found columns: ${headers.slice(0, 8).join(', ')}${headers.length > 8 ? '...' : ''}`
     );
     return { sessions: [], format, totalEvents: rows.length, warnings };
   }
@@ -145,22 +188,47 @@ export function processUploadedCSV(csvText: string): {
 
   for (const row of rows) {
     try {
-      const sessionId = row[colMap.session_id];
+      // GA4 exports may use ga_session_id or session_id
+      let sessionId = row[colMap.session_id];
+      if (!sessionId && format === 'ga4') {
+        sessionId = row['session_id'] || row['ga_session_id'];
+      }
       if (!sessionId) { parseErrors++; continue; }
 
       let eventType = row[colMap.event_type] || 'unknown';
       if (format === 'rees46') {
         eventType = REES46_EVENT_MAP[eventType] || eventType;
+      } else if (format === 'ga4') {
+        eventType = GA4_EVENT_MAP[eventType] || eventType;
       }
 
       let timestamp = 0;
       const tsRaw = row[colMap.timestamp];
       if (tsRaw) {
-        const d = new Date(tsRaw);
-        timestamp = isNaN(d.getTime()) ? 0 : d.getTime();
+        // GA4 event_timestamp is in microseconds
+        const asNum = Number(tsRaw);
+        if (format === 'ga4' && !isNaN(asNum) && asNum > 1e15) {
+          timestamp = asNum / 1000; // microseconds → milliseconds
+        } else {
+          const d = new Date(tsRaw);
+          timestamp = isNaN(d.getTime()) ? 0 : d.getTime();
+        }
       }
 
-      const category = row[colMap.category] || 'unknown';
+      const categoryRaw = row[colMap.category] || 'unknown';
+      // GA4: extract category from page_location URL path
+      let category = categoryRaw;
+      if (format === 'ga4' && categoryRaw.startsWith('http')) {
+        try {
+          const path = new URL(categoryRaw).pathname;
+          const segments = path.split('/').filter(Boolean);
+          category = segments.slice(0, 2).join('/') || 'homepage';
+        } catch {
+          category = 'unknown';
+        }
+      } else {
+        category = categoryRaw.split('.').slice(0, 2).join('.');
+      }
       const productId = row[colMap.product_id] || '';
       const price = parseFloat(row[colMap.price]) || 0;
 
@@ -168,7 +236,7 @@ export function processUploadedCSV(csvText: string): {
         session_id: sessionId,
         timestamp,
         event_type: eventType,
-        category: category.split('.')[0], // REES46: "electronics.smartphone" → "electronics"
+        category,
         product_id: productId,
         price,
       });
@@ -181,9 +249,25 @@ export function processUploadedCSV(csvText: string): {
     warnings.push(`${parseErrors} rows could not be parsed and were skipped.`);
   }
 
+  // Deduplicate: same session + timestamp + event_type
+  const beforeDedup = events.length;
+  const seen = new Set<string>();
+  const dedupedEvents: RawEvent[] = [];
+  for (const e of events) {
+    const key = `${e.session_id}|${e.timestamp}|${e.event_type}`;
+    if (!seen.has(key)) {
+      seen.add(key);
+      dedupedEvents.push(e);
+    }
+  }
+  const dupsRemoved = beforeDedup - dedupedEvents.length;
+  if (dupsRemoved > 0) {
+    warnings.push(`${dupsRemoved} duplicate events removed.`);
+  }
+
   // Group into sessions
   const sessionMap = new Map<string, RawEvent[]>();
-  for (const event of events) {
+  for (const event of dedupedEvents) {
     const existing = sessionMap.get(event.session_id) || [];
     existing.push(event);
     sessionMap.set(event.session_id, existing);

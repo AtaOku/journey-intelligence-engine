@@ -6,15 +6,27 @@ interface Props {
   onFileUpload: (csvText: string) => void;
   uploadStatus?: { sessions: number; warnings: string[] } | null;
   isProcessing?: boolean;
+  processingStage?: string;
 }
 
-export function DataToggle({ mode, onModeChange, onFileUpload, uploadStatus, isProcessing }: Props) {
+export function DataToggle({ mode, onModeChange, onFileUpload, uploadStatus, isProcessing, processingStage }: Props) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState<string | null>(null);
+  const [fileSizeError, setFileSizeError] = useState<string | null>(null);
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
+
+    setFileSizeError(null);
+
+    // Guard: prevent browser crash on large files
+    const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
+    if (file.size > MAX_FILE_SIZE) {
+      setFileName(file.name);
+      setFileSizeError(`File too large (${(file.size / 1024 / 1024).toFixed(0)}MB). Maximum: 50MB. Pre-aggregate or sample your data before uploading.`);
+      return;
+    }
 
     setFileName(file.name);
     const reader = new FileReader();
@@ -70,6 +82,12 @@ export function DataToggle({ mode, onModeChange, onFileUpload, uploadStatus, isP
           >
             {isProcessing ? 'Processing...' : fileName ? 'Change file' : 'Choose CSV file'}
           </button>
+          {isProcessing && processingStage && (
+            <span className="text-xs text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
+              <span className="animate-spin h-3 w-3 border-2 border-indigo-400 border-t-transparent rounded-full" />
+              {processingStage}
+            </span>
+          )}
           {fileName && !isProcessing && (
             <span className="text-xs text-gray-500 dark:text-gray-400">
               {fileName}
@@ -86,7 +104,12 @@ export function DataToggle({ mode, onModeChange, onFileUpload, uploadStatus, isP
       )}
 
       {/* Warnings */}
-      {mode === 'upload' && uploadStatus?.warnings.length ? (
+      {mode === 'upload' && fileSizeError && (
+        <span className="text-xs text-red-600 dark:text-red-400">
+          {fileSizeError}
+        </span>
+      )}
+      {mode === 'upload' && !fileSizeError && uploadStatus?.warnings.length ? (
         <span className="text-xs text-amber-600 dark:text-amber-400">
           {uploadStatus.warnings[0]}
         </span>

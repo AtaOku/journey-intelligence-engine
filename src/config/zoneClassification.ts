@@ -27,7 +27,7 @@ export function getZone(step: string): FunnelZone {
       return zone as FunnelZone;
     }
   }
-  return 'navigation'; // default for unknown steps
+  return 'unknown'; // unrecognized steps scored within their own peer group
 }
 
 /**

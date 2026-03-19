@@ -77,6 +77,7 @@ export function FrictionCards({ friction }: Props) {
         <h2 className="text-base font-medium mb-1">Detected friction patterns</h2>
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
           Behavioral signatures detected from journey sequences. These are pattern classifications, not causal diagnoses.
+          Sessions can match multiple patterns — counts may overlap.
         </p>
 
         <div className="space-y-3">

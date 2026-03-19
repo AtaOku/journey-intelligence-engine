@@ -60,7 +60,7 @@ def get_zone(step: str) -> str:
     for zone, steps in ZONE_CLASSIFICATION.items():
         if any(s in step_lower for s in steps):
             return zone
-    return 'navigation'  # default
+    return 'unknown'  # unrecognized steps scored within their own peer group
 
 
 # ============================================================
@@ -565,7 +565,7 @@ def compute_anomaly_scores(sessions: List[ProcessedSession]) -> Dict:
         values = [r[1] for r in rates]
         zone_stats[zone] = {
             'mean': np.mean(values) if values else 0,
-            'std': np.std(values) if len(values) > 1 else 0.1,  # minimum std to avoid division by zero
+            'std': max(np.std(values, ddof=1), min_std) if len(values) > 1 else min_std,  # minimum std to avoid division by zero
             'count': len(values)
         }
     
